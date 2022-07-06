@@ -1,0 +1,207 @@
+<section style="margin-top: 60px">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" style="margin-bottom: 30px">
+				<div class="white-box">
+					<div class="row">
+						<div class="col-sm-12" style="margin-bottom: 20px">
+		                    <div class="white-box-header">
+		                    	<div class="header-icon blue">
+									<fa-icon class="normal" [icon]="faCube" style="font-size: 25px; color:  #0B2A97;"></fa-icon>
+			                    </div>
+								<h4> <fa-icon class="normal" [icon]="faCube" style="font-size: 25px; "></fa-icon> Block 1050</h4>
+		                    </div>
+						</div>
+						<div class="col-sm-6 ms-auto">
+							<div class="row">
+									<div class="col-sm-4">
+										<div class="confirmation-btn">
+											4 Confirmations
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="info-btn">
+											21,000 m/s Gas Used
+										</div>
+									</div>
+									<div class="col-4 ms-auto col-sm-2">
+										<div class="pagination-btn">
+			                    			<fa-icon class="normal" [icon]="faChevronLeft" style="color:  #0B2A97;"></fa-icon>
+										</div>
+									</div>
+									<div class="col-4 col-sm-2">
+										<div class="pagination-btn">
+			                    			<fa-icon class="normal" [icon]="faChevronRight" style="color:  #0B2A97;"></fa-icon>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12" style="margin-bottom: 30px">
+				<div class="white-box">
+					<div class="row">
+						<div class="col-sm-12" style="margin-bottom: 20px">
+		                    <div class="white-box-header">
+		                    	<div class="header-icon blue">
+									<fa-icon class="normal" [icon]="faFileAlt" style="font-size: 27px; color:  #0B2A97; margin-left:  5px;"></fa-icon>
+			                    </div>
+								<h4> Summary</h4>
+		                    </div>
+						</div>
+						<div class="col-sm-12">
+							<div class="row summary-form">
+								<div class="col-sm-3">
+									<p class="summary-label">Block Number</p>
+									<p class="summary-desc">1050</p>
+								</div>	
+								<div class="col-sm-3">
+									<p class="summary-label">Received Time</p>
+									<p class="summary-desc">1050</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Block Hash</p>
+									<p class="summary-desc">0x6d3a1d81a25c79dcbef78b2d16a04f7fc5ad5cf5</p>
+								</div>	
+								<div class="col-sm-3">
+									<p class="summary-label">Confirmations</p>
+									<p class="summary-desc">8 Confirmations</p>
+								</div>	
+								<div class="col-sm-3">
+									<p class="summary-label">Difficulty</p>
+									<p class="summary-desc">0.0000 T</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Nonce</p>
+									<p class="summary-desc">0x0000000000000</p>
+								</div>	
+								<div class="col-sm-3">
+									<p class="summary-label">Size</p>
+									<p class="summary-desc">722 bytes</p>
+								</div>	
+								<div class="col-sm-3">
+									<p class="summary-label">Gas Limit</p>
+									<p class="summary-desc">8,000,000 m/s</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Miner</p>
+									<p class="summary-desc">0x00000000000000000000000</p>
+								</div>	
+								<div class="col-sm-3">
+									<p class="summary-label">Gas Used</p>
+									<p class="summary-desc">21,000 m/s</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Uncle Hash</p>
+									<p class="summary-desc">0x000000000000000dasdasdasdas0000asdasdasdasdasdas000</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">State Root Hash</p>
+									<p class="summary-desc">0x000000000000000asdasdasdasdasdasdasdasdasdas00000000</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Parent Hash</p>
+									<p class="summary-desc">0x0000000000000adsasdasdasdasdasdas0000000000</p>
+								</div>	
+								<div class="col-sm-12">
+									<p class="summary-label">Data</p>
+									<p class="summary-desc">0x0000000000000dasdasdasdasdasdasdasdas0000000000asdasdasdasdasdasdasdasdasdasdasdasdasdda</p>
+								</div>	
+								<div class="col-sm-12">
+									<p class="summary-label">Data (Translated)</p>
+									<p class="summary-desc">0x0000000000000dasdasdasdasdasdasdasdas0000000000asdasdasdasdasdasdas</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Number of Uncle Blocks</p>
+									<p class="summary-desc">0</p>
+								</div>	
+								<div class="col-sm-6">
+									<p class="summary-label">Number of Transactions</p>
+									<p class="summary-desc">1</p>
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" *ngIf="hasTransaction">
+			<div class="col-sm-12" style="margin-bottom: 30px">
+				<div class="white-box">
+					<div class="row">
+						<div class="col-sm-12" style="margin-bottom: 20px">
+							<div class="white-box-header">
+								<div class="header-icon blue">
+									<fa-icon class="normal" [icon]="faExchangeAlt" style="font-size: 25px; color:  #0B2A97;"></fa-icon>
+								</div>
+								<h4>Transactions</h4>
+							</div>
+							<div class="col-sm-12"> 
+								<div class="table-responsive">
+									<table class="table align-middle table-border chain-table">
+										<thead>
+											<th>Block#</th>
+											<th>Block Hash</th>
+											<th>Size</th>
+											<th>Date</th>
+											<th># of TXs</th>
+											<th>Gas Used</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div class="block-no" (click)="blockDetail()">
+														<fa-icon class="normal" [icon]="faCube"></fa-icon>1024
+													</div>
+												</td>
+												<td>
+													<div class="block-hash">0x6d3a1d81a25c79dcbef78b2d16a04f7fc5ad5cf5</div>
+												</td>
+												<td>0.608 KB</td>
+												<td>{{myDate | date: 'd/M/yyyy, h:mm a' }}</td>
+												<td>0</td>
+												<td>21,000 m/s</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="block-no" (click)="blockDetail()">
+														<fa-icon class="normal" [icon]="faCube"></fa-icon>1024
+													</div>
+												</td>
+												<td>
+													<div class="block-hash">0x6d3a1d81a25c79dcbef78b2d16a04f7fc5ad5cf5</div>
+												</td>
+												<td>0.608 KB</td>
+												<td>{{myDate | date: 'd/M/yyyy, h:mm a' }}</td>
+												<td>0</td>
+												<td>21,000 m/s</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="block-no" (click)="blockDetail()">
+														<fa-icon class="normal" [icon]="faCube"></fa-icon>1024
+													</div>
+												</td>
+												<td>
+													<div class="block-hash">0x6d3a1d81a25c79dcbef78b2d16a04f7fc5ad5cf5</div>
+												</td>
+												<td>0.608 KB</td>
+												<td>{{myDate | date: 'd/M/yyyy, h:mm a' }}</td>
+												<td>0</td>
+												<td>21,000 m/s</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

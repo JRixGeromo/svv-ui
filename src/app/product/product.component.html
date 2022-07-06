@@ -1,0 +1,409 @@
+<section style="margin-top: 60px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-4 col-xl-3">
+        <app-filter></app-filter>
+      </div>
+      <div class="col-md-12 col-lg-7 col-xl-9">
+        <div class="row" style="padding: 20px 0">
+          <div class="col-sm-12 col-lg-2" *ngIf="nftList">
+            <div class="result-count">
+              {{ nftList.length }} <span>Savanna Life</span>
+            </div>
+          </div>
+          <div class="col-12 col-sm-5 col-lg-2 mb-4">
+            <select class="select-option">
+              <option selected>All Items</option>
+              <option value="1">
+                <div style="padding: 20px">Single Items</div>
+              </option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-5 col-lg-3 mb-4">
+            <div class="btn-search cursor-pointer" (click)="open(search, 'xl')">
+              <img
+                src="assets/images/search-icon.svg"
+                style="margin-right: 15px"
+              /># insert id here
+            </div>
+
+            <!-- Search modal -->
+            <ng-template #search let-modal>
+              <div class="detail-modal">
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <button
+                        type="button"
+                        class="close"
+                        aria-label="Close"
+                        (click)="modal.dismiss('Cross click')"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <div class="text-center" style="padding: 40px 30px">
+                        <h4
+                          style="color: #fbb03b"
+                          class="modal-title ms-0 text-center"
+                          id="modal-basic-title"
+                        >
+                          Name your saved search
+                        </h4>
+                        <p style="margin-bottom: 40px">
+                          Give your search a name
+                        </p>
+                        <div class="row col-lg-10 mx-auto">
+                          <div class="col-lg-2 mb-2 my-auto">
+                            <p>Name</p>
+                          </div>
+                          <div class="col-lg-7 mb-2">
+                            <input
+                              class="form-control search-input"
+                              type="search"
+                              placeholder="Search items, collections, and accounts"
+                              aria-label="Search"
+                            />
+                          </div>
+                          <div class="col-lg-3 mb-2">
+                            <div
+                              class="btn-modal mb-0"
+                              (click)="modal.dismiss('Cross click')"
+                            >
+                              save
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <div class="col-12 col-sm-5 col-lg-2 ms-auto mb-4">
+            <select class="select-option" aria-label="Default select example">
+              <option selected>Sort By</option>
+              <option value="1">Recently Listed</option>
+              <option value="2">Recently Created</option>
+              <option value="3">Recently Sold</option>
+            </select>
+          </div>
+          <div class="col-5 col-sm-1 view-btn mb-4">
+            <div (click)="gridRow(1)">
+              <fa-icon [icon]="faTh" class="grid-row"></fa-icon>
+            </div>
+            <div (click)="gridRow(0)">
+              <fa-icon [icon]="faList" class="grid-row"></fa-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <ng-container *ngIf="!nftList">
+            <div>Loading NFTList ...</div>
+          </ng-container>
+          <ng-container *ngIf="nftList && nftList.length == 0">
+            <div class="text-center">NFT is not available.</div>
+          </ng-container>
+          <div *ngIf="isGrid; then grid; else row"></div>
+          <ng-template #grid>
+            <div
+              class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+              *ngFor="let nft of nftList"
+              style="margin-bottom: 20px"
+            >
+              <div class="product-bg">
+                <div class="product-wrapper">
+                  <a
+                    href="product/detail/{{ nft?._id }}"
+                    class="product-detail-link"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="danger-label"># 8776520</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-7">
+                            <p>{{ nft.item_name }}</p>
+                            <div class="majestic-label">Majestic</div>
+                          </div>
+                          <div class="col-5">
+                            <p
+                              class="recent-lv text-right"
+                              style="color: #fcbf10"
+                            >
+                              Lv: <span>100</span>
+                            </p>
+                            <img
+                              src="assets/images/recent-chart-down.svg"
+                              style="float: right"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="nft-image">
+                          <img [src]="nft?.item_image" />
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="btn-price">
+                              <img src="assets/images/price-unit.svg" />{{
+                                nft?.price
+                              }}
+                              <span>svsa</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+              style="margin-bottom: 20px"
+            >
+              <div class="product-bg">
+                <div class="product-wrapper">
+                  <a
+                    href="product/detail2"
+                    class="product-detail-link"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="danger-label">#2932</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-7">
+                            <p>ROAR 2932</p>
+                            <div class="majestic-label">Majestic</div>
+                          </div>
+                          <div class="col-5">
+                            <p
+                              class="recent-lv text-right"
+                              style="color: #fcbf10"
+                            >
+                              Lv: <span>100</span>
+                            </p>
+                            <img
+                              src="assets/images/recent-chart-down.svg"
+                              style="float: right"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="nft-image">
+                          <img src="assets/images/2932.jpg" />
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="btn-price">
+                              <img src="assets/images/price-unit.svg" />0.09
+                              <span>svsa</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+              style="margin-bottom: 20px"
+            >
+              <div class="product-bg">
+                <div class="product-wrapper">
+                  <a
+                    href="product/detail/3"
+                    class="product-detail-link"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="danger-label">#2910</div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row">
+                          <div class="col-7">
+                            <p>ROAR 2910</p>
+                            <div class="majestic-label">Majestic</div>
+                          </div>
+                          <div class="col-5">
+                            <p
+                              class="recent-lv text-right"
+                              style="color: #fcbf10"
+                            >
+                              Lv: <span>100</span>
+                            </p>
+                            <img
+                              src="assets/images/recent-chart-down.svg"
+                              style="float: right"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="nft-image">
+                          <img src="assets/images/2910.jpg" />
+                        </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="btn-price">
+                              <img src="assets/images/price-unit.svg" />0.099
+                              <span>svsa</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template #row>
+            <div
+              class="col-lg-12"
+              *ngFor="let nft of nftList"
+              style="margin-bottom: 20px"
+            >
+              <div class="product-row-bg">
+                <div class="product-wrapper">
+                  <a
+                    href="product/detail/{{ nft?._id }}"
+                    class="product-detail-link"
+                  >
+                    <div class="row">
+                      <div class="col-lg-2 my-auto">
+                        <div class="nft-image">
+                          <img [src]="nft?.item_image" />
+                        </div>
+                      </div>
+                      <div class="col-lg-3 my-auto">
+                        <div class="majestic-label product-row">Majestic</div>
+                        <div class="row">
+                          <div class="col-8 pe-0">
+                            <p>{{ nft.item_name }}</p>
+                          </div>
+                          <div class="col-4 ps-0">
+                            <p
+                              class="recent-lv text-right"
+                              style="color: #fcbf10"
+                            >
+                              Lv: <span>100</span>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="danger-label" style="margin-top: 25px">
+                          # 8776520
+                        </div>
+                      </div>
+                      <div class="col-lg-4 my-auto">
+                        <div class="row py-2">
+                          <div class="col-4">
+                            <div class="row">
+                              <div class="col-l2">
+                                <div class="product-detail-tab-title">
+                                  Energy/Minutes
+                                </div>
+                              </div>
+                              <div class="col-3">
+                                <img
+                                  src="assets/images/energy-icon.svg"
+                                  class="product-land-icon"
+                                />
+                              </div>
+                              <div class="col-9 mt-auto">
+                                <div class="product-land-ability text-right">
+                                  0.4/M
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="row">
+                              <div class="col-l2">
+                                <div class="product-detail-tab-title">
+                                  Life Stats
+                                </div>
+                              </div>
+                              <div class="col-3">
+                                <img
+                                  src="assets/images/life-stats.svg"
+                                  class="product-land-icon"
+                                />
+                              </div>
+                              <div class="col-9 mt-auto">
+                                <div class="product-land-ability text-right">
+                                  Win + 1
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="row">
+                              <div class="col-l2">
+                                <div class="product-detail-tab-title">
+                                  Energy/Minutes
+                                </div>
+                              </div>
+                              <div class="col-3">
+                                <img
+                                  src="assets/images/energy-icon.svg"
+                                  class="product-land-icon"
+                                />
+                              </div>
+                              <div class="col-9 mt-auto">
+                                <div class="product-land-ability text-right">
+                                  0.4/M
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 my-auto">
+                        <div class="btn-price">
+                          <img src="assets/images/price-unit.svg" />{{
+                            nft?.price
+                          }}
+                          <span>svsa</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div></ng-template
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

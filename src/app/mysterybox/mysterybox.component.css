@@ -1,0 +1,26 @@
+.card-box{
+	background: url(../../assets/images/mystery-box-cardbox.svg)no-repeat;
+	background-size: 100% 100%;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.card-box img{
+	margin-left: 3px;
+}
+
+.btn-buy{
+	height:  90px;
+}
+
+.mystery-box-title{
+	font-size: 48px;
+	margin-bottom: 20px;
+}
+
+@media(max-width:  600px){
+	.btn-buy{
+		height:  60px;
+	}
+
+}

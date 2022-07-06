@@ -1,0 +1,956 @@
+<app-navbar></app-navbar>
+<section style="margin-top: 50px">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <a
+          class="sub-btn filter-btn"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+          style="margin-bottom: 30px"
+          >Profiles</a
+        >
+        <div
+          class="offcanvas offcanvas-start filter row"
+          tabindex="-1"
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+          style="
+            background: url(assets/images/filter-bg.png) no-repeat;
+            background-size: 100% 100%;
+            background-origin: border-box;
+            min-height: calc(100vh - 160px);
+            padding: 30px 0;
+          "
+        >
+          <div class="col-sm-12 px-0 h-100">
+            <div class="offcanvas-body h-100" style="position: relative">
+              <div class="row">
+                <div class="col-sm-12 mt-auto px-0">
+                  <a
+                    class="profile-menu-link"
+                    href="#tab-account"
+                    [ngClass]="{
+                      'profile-menu-link-active': tab === 'account'
+                    }"
+                    (click)="$event.preventDefault(); tab = 'account'"
+                  >
+                    <img
+                      src="assets/images/dropdown-menu-account-icon.svg"
+                      class="menu-icon"
+                    />Account
+                  </a>
+                </div>
+                <div class="col-sm-12 px-0">
+                  <a
+                    class="profile-menu-link"
+                    href="#tab-inventory"
+                    [ngClass]="{
+                      'profile-menu-link-active': tab === 'inventory'
+                    }"
+                    (click)="$event.preventDefault(); tab = 'inventory'"
+                  >
+                    <img
+                      src="assets/images/dropdown-menu-inventory-icon.svg"
+                      class="menu-icon"
+                    />Inventory
+                  </a>
+                </div>
+                <div class="col-sm-12 px-0">
+                  <a
+                    class="profile-menu-link"
+                    href="#tab-wallet"
+                    [ngClass]="{
+                      'profile-menu-link-active': tab === 'wallet'
+                    }"
+                    (click)="$event.preventDefault(); tab = 'wallet'"
+                  >
+                    <img
+                      src="assets/images/dropdown-menu-wallet-icon.svg"
+                      class="menu-icon"
+                    />Wallet
+                  </a>
+                </div>
+                <div class="col-sm-12 px-0">
+                  <a
+                    class="profile-menu-link"
+                    href="#tab-history"
+                    [ngClass]="{
+                      'profile-menu-link-active': tab === 'history'
+                    }"
+                    (click)="$event.preventDefault(); tab = 'history'"
+                  >
+                    <img
+                      src="assets/images/dropdown-menu-history-icon.svg"
+                      class="menu-icon"
+                    />history
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="position: relative; bottom: 0">
+                <div class="col-sm-12 mt-auto px-0">
+                  <a class="profile-menu-link" (click)="logout()">
+                    <img
+                      src="assets/images/dropdown-menu-account-icon.svg"
+                      class="menu-icon"
+                    />Logout
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-9">
+        <!-- Account -->
+        <div
+          class="row profile-menu-panel"
+          id="tab-account"
+          [ngClass]="{ 'profile-menu-panel-active': tab === 'account' }"
+        >
+          <div class="col-lg-12 mb-5">
+            <h2>Account</h2>
+            <div class="profile-card">
+              <div class="row" *ngIf="userProfile">
+                <div class="col-sm-4 col-lg-3 my-auto">
+                  <div class="image">
+                    <img src="{{ image }}" class="mb-2" />
+                    <div
+                      class="btn-edit cursor-pointer"
+                      (click)="open(avatar, 'lg')"
+                    >
+                      <img src="assets/images/edit-icon.svg" />
+                    </div>
+
+                    <!-- avatar modal -->
+                    <ng-template #avatar let-modal>
+                      <div class="detail-modal">
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <button
+                                type="button"
+                                class="close"
+                                aria-label="Close"
+                                (click)="modal.dismiss('Cross click')"
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <div
+                                class="text-center"
+                                style="padding: 30px 20px"
+                              >
+                                <div class="row col-lg-8 mx-auto">
+                                  <div class="col-6 col-sm-4">
+                                    <div class="avatar-box"></div>
+                                  </div>
+                                  <div class="col-6 col-sm-4">
+                                    <div class="avatar-box"></div>
+                                  </div>
+                                  <div class="col-6 col-sm-4">
+                                    <div class="avatar-box"></div>
+                                  </div>
+                                  <div class="col-6 col-sm-4">
+                                    <div class="avatar-box"></div>
+                                  </div>
+                                  <div class="col-6 col-sm-4">
+                                    <div class="avatar-box"></div>
+                                  </div>
+                                  <div class="col-6 col-sm-4">
+                                    <div class="avatar-box"></div>
+                                  </div>
+                                </div>
+                                <div class="row col-lg-10 mx-auto">
+                                  <div class="col-12">
+                                    <div
+                                      class="login-btn"
+                                      (click)="modal.dismiss('Cross click')"
+                                    >
+                                      apply
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                </div>
+                <div class="col-sm-8 col-lg-4 my-auto">
+                  <div class="profile-detail">
+                    <h3>
+                      {{
+                        userProfile.username ? userProfile.username : "Username"
+                      }}
+                    </h3>
+                    <p>
+                      {{ userProfile._id | slice: 0:15 }}...
+                      <img
+                        src="assets/images/copy-icon.svg"
+                        style="margin-left: 15px"
+                      />
+                    </p>
+                    <h3 style="margin-top: 40px; margin-bottom: 20px">
+                      {{ userProfile._id | slice: 0:15 }}
+                    </h3>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-5 my-auto">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="profile-count">
+                        <img src="assets/images/average-price.svg" />
+                        {{ collectedList.length }}
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="profile-count">
+                        <img src="assets/images/average-price.svg" />
+                        {{ createdList.length }}
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="profile-count">
+                        <img src="assets/images/average-price.svg" />
+                        {{ favouriteList.length }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5" *ngIf="userProfile">
+            <h2>Wallet</h2>
+            <div class="wallet-card">
+              <div class="row h-100">
+                <div class="col-sm-3 col-lg-2 my-auto">
+                  <img
+                    src="assets/images/average-price.svg"
+                    style="margin: 20px auto; display: block"
+                  />
+                </div>
+                <div class="col-sm-9 col-lg-10 my-auto">
+                  <div class="wallet-detail">
+                    <h3>
+                      {{ userProfile._id | slice: 0:15 }} <span>svsa</span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wallet-address">
+              <div class="row">
+                <div class="col-lg-12">
+                  <p>
+                    {{ userProfile._id | slice: 0:15 }}...
+                    <img
+                      src="assets/images/copy-icon.svg"
+                      style="margin-left: 15px"
+                    />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5">
+            <h2>Activity</h2>
+            <div class="profile-card">
+              <div class="row">
+                <div class="col-sm-8 col-lg-6 my-auto">
+                  <div class="redeem-bg">
+                    <img
+                      src="assets/images/activity-card-dummy.svg"
+                      width="150px"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-3 col-lg-2 ms-auto my-auto">
+                  <div class="profile-btn cursor-pointer">Redeem</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 mb-5">
+            <h2>Account Setting</h2>
+            <div class="wallet-card">
+              <div class="row h-100">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="mb-2 setting-label">Game Profile</p>
+                    </div>
+                    <div class="col-sm-7 col-lg-6 my-auto">
+                      <div>
+                        <input
+                          type="name"
+                          #gameProfile
+                          name="gameProfile"
+                          class="setting-input"
+                          [ngModel]="username"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="mb-2 setting-label">Email Address</p>
+                    </div>
+                    <div class="col-sm-7 col-lg- my-auto">
+                      <div class="email-box">
+                        <input
+                          type="email"
+                          name="email"
+                          class="setting-input"
+                          [ngModel]="facebook"
+                          #email
+                        />
+                        <img src="assets/images/verify-icon.svg" /><span
+                          >Verify</span
+                        >
+                      </div>
+                    </div>
+                    <div class="col-sm-3 col-lg-2 ms-auto my-auto">
+                      <div
+                        class="profile-btn cursor-pointer"
+                        (click)="onSave(gameProfile.value, email.value)"
+                      >
+                        Update
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory -->
+        <div
+          class="row profile-menu-panel"
+          id="tab-inventory"
+          [ngClass]="{ 'profile-menu-panel-active': tab === 'inventory' }"
+        >
+          <div class="col-sm-6 col-lg-5 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <div class="btn-profile active">Available</div>
+              </div>
+              <div class="col-6">
+                <div class="btn-profile">Selling</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3 ms-auto mb-4">
+            <div class="btn-profile active">Available</div>
+          </div>
+
+          <div class="col-lg-12 mb-5">
+            <div class="dashboard-card-bg">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="dashboard-tabs">
+                    <div class="dashboard-tabs__list">
+                      <a
+                        href="#tab-savanaLand"
+                        class="dashboard-tabs__item"
+                        [ngClass]="{
+                          'dashboard-tabs__item--active':
+                            tabInventory === 'savanaLife'
+                        }"
+                        (click)="
+                          $event.preventDefault(); tabInventory = 'savanaLife'
+                        "
+                        >Savanna Life</a
+                      >
+                      <a
+                        href="#tab-savanaLand"
+                        class="dashboard-tabs__item"
+                        [ngClass]="{
+                          'dashboard-tabs__item--active':
+                            tabInventory === 'savanaLand'
+                        }"
+                        (click)="
+                          $event.preventDefault(); tabInventory = 'savanaLand'
+                        "
+                        >Savanna Land</a
+                      >
+                      <a
+                        href="#tab-mysteryBox"
+                        class="dashboard-tabs__item"
+                        [ngClass]="{
+                          'dashboard-tabs__item--active':
+                            tabInventory === 'mysteryBox'
+                        }"
+                        (click)="
+                          $event.preventDefault(); tabInventory = 'mysteryBox'
+                        "
+                        >Mystery Box</a
+                      >
+                      <a
+                        href="#tab-activity"
+                        class="dashboard-tabs__item"
+                        [ngClass]="{
+                          'dashboard-tabs__item--active':
+                            tabInventory === 'activity'
+                        }"
+                        (click)="
+                          $event.preventDefault(); tabInventory = 'activity'
+                        "
+                        >Activity</a
+                      >
+                    </div>
+                    <div class="dashboard-tabs__content">
+                      <div
+                        class="dashboard-tabs__pane"
+                        id="tab-savanaLife"
+                        [ngClass]="{
+                          'dashboard-tabs__pane--active':
+                            tabInventory === 'savanaLife'
+                        }"
+                      >
+                        <div class="row" *ngIf="userProfile">
+                          <div class="col-sm-12 col-lg-12">
+                            <div class="inventory-header">
+                              <h1>{{ nftList.length }}</h1>
+                              <div style="display: inline-block">
+                                <span>Savana<br />Life</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <ng-container *ngIf="!nftList">
+                          <div>Loading ...</div>
+                        </ng-container>
+                        <ng-container *ngIf="nftList && nftList.length == 0">
+                          <div class="row">
+                            <div
+                              class="col-12 margin-auto text-center"
+                              style="margin-bottom: 20px"
+                            >
+                              <img
+                                src="assets/images/not-found-icon.svg"
+                                width="100px"
+                              />
+                              <p class="inventory-not-found">
+                                Sorry, no results found.
+                              </p>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-container>
+                          <div class="row">
+                            <div
+                              class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+                              *ngFor="let nft of nftList"
+                              style="margin-bottom: 20px"
+                            >
+                              <div class="inventory-bg">
+                                <div class="product-wrapper">
+                                  <a>
+                                    <div class="row">
+                                      <div class="col-12">
+                                        <div class="row">
+                                          <div class="col-7">
+                                            <div class="majestic-label">
+                                              Majestic
+                                            </div>
+                                          </div>
+                                          <div class="col-5">
+                                            <p
+                                              class="recent-lv text-right"
+                                              style="color: #fcbf10"
+                                            >
+                                              Lv: <span>100</span>
+                                            </p>
+                                            <img
+                                              src="assets/images/recent-chart-down.svg"
+                                              style="float: right"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-12">
+                                        <div
+                                          class="nft-image"
+                                          style="margin-bottom: 20px"
+                                        >
+                                          <img [src]="nft?.item_image" />
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <div class="row">
+                                          <div class="col-12">
+                                            <div class="btn-inventory-detail">
+                                              <div class="text-center">
+                                                <p>huntar</p>
+                                                <h3>{{ nft?.item_name }}</h3>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <div
+                        class="dashboard-tabs__pane"
+                        id="tab-savanaLand"
+                        [ngClass]="{
+                          'dashboard-tabs__pane--active':
+                            tabInventory === 'savanaLand'
+                        }"
+                      >
+                        <div class="row">
+                          <div class="col-sm-12 col-lg-12">
+                            <div class="inventory-header">
+                              <h1>12</h1>
+                              <div style="display: inline-block">
+                                <span>Savana<br />Land</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <ng-container *ngIf="!nftList">
+                          <div>Loading ...</div>
+                        </ng-container>
+                        <ng-container *ngIf="nftList && nftList.length == 0">
+                          <div class="row">
+                            <div
+                              class="col-12 margin-auto text-center"
+                              style="margin-bottom: 20px"
+                            >
+                              <img
+                                src="assets/images/not-found-icon.svg"
+                                width="100px"
+                              />
+                              <p class="inventory-not-found">
+                                Sorry, no results found.
+                              </p>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-container>
+                          <div class="row">
+                            <div
+                              class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+                              *ngFor="let nft of nftList"
+                              style="margin-bottom: 20px"
+                            >
+                              <div class="inventory-bg">
+                                <div class="product-wrapper">
+                                  <a>
+                                    <div class="row">
+                                      <div class="col-12">
+                                        <div class="row">
+                                          <div class="col-7">
+                                            <div class="majestic-label">
+                                              Majestic
+                                            </div>
+                                          </div>
+                                          <div class="col-5">
+                                            <p
+                                              class="recent-lv text-right"
+                                              style="color: #fcbf10"
+                                            >
+                                              Lv: <span>100</span>
+                                            </p>
+                                            <img
+                                              src="assets/images/recent-chart-down.svg"
+                                              style="float: right"
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-sm-12">
+                                        <div
+                                          class="nft-image"
+                                          style="margin-bottom: 20px"
+                                        >
+                                          <img [src]="nft?.item_image" />
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <div class="row">
+                                          <div class="col-12">
+                                            <div class="btn-inventory-detail">
+                                              <div class="text-center">
+                                                <p>huntar</p>
+                                                <h3>{{ nft?.item_name }}</h3>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <div
+                        class="dashboard-tabs__pane"
+                        id="tab-mysteryBox"
+                        [ngClass]="{
+                          'dashboard-tabs__pane--active':
+                            tabInventory === 'mysteryBox'
+                        }"
+                      >
+                        <div class="row">
+                          <div class="col-sm-12 col-lg-12">
+                            <div class="inventory-header">
+                              <h1>12</h1>
+                              <div style="display: inline-block">
+                                <span>Mystery<br />Box</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <ng-container *ngIf="!nftList">
+                          <div>Loading ...</div>
+                        </ng-container>
+                        <ng-container *ngIf="nftList && nftList.length == 0">
+                          <div class="row">
+                            <div
+                              class="col-12 margin-auto text-center"
+                              style="margin-bottom: 20px"
+                            >
+                              <div class="login-btn">Purchase Mystery Box</div>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-container>
+                          <div class="row">
+                            <div
+                              class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+                              *ngFor="let nft of nftList"
+                              style="margin-bottom: 20px"
+                            >
+                              <div class="inventory-bg">
+                                <div class="product-wrapper">
+                                  <a>
+                                    <div class="row">
+                                      <div class="col-sm-12">
+                                        <div
+                                          class="nft-image"
+                                          style="margin-bottom: 20px"
+                                        >
+                                          <img [src]="nft?.item_image" />
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <div class="row">
+                                          <div class="col-12">
+                                            <div class="btn-inventory-detail">
+                                              <div class="text-center">
+                                                <p>Open Box</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                      <div
+                        class="dashboard-tabs__pane"
+                        id="tab-activity"
+                        [ngClass]="{
+                          'dashboard-tabs__pane--active':
+                            tabInventory === 'activity'
+                        }"
+                      >
+                        <div class="row">
+                          <div class="col-sm-12 col-lg-12">
+                            <div class="inventory-header">
+                              <h1>1</h1>
+                              <div style="display: inline-block">
+                                <span>Ticket</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <ng-container *ngIf="!nftList">
+                          <div>Loading ...</div>
+                        </ng-container>
+                        <ng-container *ngIf="nftList && nftList.length == 0">
+                          <div class="row">
+                            <div
+                              class="col-12 margin-auto text-center"
+                              style="margin-bottom: 20px"
+                            >
+                              <div class="login-btn">Purchase Mystery Box</div>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-container>
+                          <div class="profile-card">
+                            <div class="row">
+                              <div class="col-sm-8 col-lg-6 my-auto">
+                                <div class="redeem-bg">
+                                  <img
+                                    src="assets/images/activity-card-dummy.svg"
+                                    width="150px"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-sm-3 col-lg-2 ms-auto my-auto">
+                                <div class="profile-btn cursor-pointer">
+                                  Redeem
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wallet -->
+        <div
+          class="row profile-menu-panel"
+          id="tab-wallet"
+          [ngClass]="{ 'profile-menu-panel-active': tab === 'wallet' }"
+        >
+          <div class="col-lg-12 mb-5" *ngIf="userProfile">
+            <h2>Wallet</h2>
+            <div class="wallet-card">
+              <div class="row h-100">
+                <div class="col-sm-3 col-lg-2 my-auto">
+                  <img
+                    src="assets/images/average-price.svg"
+                    style="margin: 20px auto; display: block"
+                  />
+                </div>
+                <div class="col-sm-9 col-lg-10 my-auto">
+                  <div class="wallet-detail">
+                    <h3>
+                      {{ userProfile._id | slice: 0:15 }} <span>svsa</span>
+                    </h3>
+                    <p>
+                      {{ userProfile._id | slice: 0:15 }}...
+                      <img
+                        src="assets/images/copy-icon.svg"
+                        style="margin-left: 15px"
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- History -->
+        <div
+          class="row profile-menu-panel"
+          id="tab-history"
+          [ngClass]="{ 'profile-menu-panel-active': tab === 'history' }"
+        >
+          <div class="col-lg-12 mb-5">
+            <div class="dashboard-card-bg">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="dashboard-tabs">
+                    <div class="dashboard-tabs__list">
+                      <a
+                        href="#tab-transactionHistory"
+                        class="dashboard-tabs__item"
+                        [ngClass]="{
+                          'dashboard-tabs__item--active':
+                            tabHistory === 'transactionHistory'
+                        }"
+                        (click)="
+                          $event.preventDefault();
+                          tabHistory = 'transactionHistory'
+                        "
+                        >Transaction History</a
+                      >
+                      <a
+                        href="#tab-balanceHistory"
+                        class="dashboard-tabs__item"
+                        [ngClass]="{
+                          'dashboard-tabs__item--active':
+                            tabHistory === 'balanceHistory'
+                        }"
+                        (click)="
+                          $event.preventDefault(); tabHistory = 'balanceHistory'
+                        "
+                        >Balance History</a
+                      >
+                    </div>
+                    <div class="dashboard-tabs__content">
+                      <div
+                        class="dashboard-tabs__pane"
+                        id="tab-transactionHistory"
+                        [ngClass]="{
+                          'dashboard-tabs__pane--active':
+                            tabHistory === 'transactionHistory'
+                        }"
+                      >
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <table class="table custom-table">
+                              <tr>
+                                <th>Item</th>
+                                <th>Type / Status</th>
+                                <th>Amount / Time</th>
+                              </tr>
+                              <tr *ngIf="!nftList || nftList.length <= 0">
+                                <td colspan="3">
+                                  <div
+                                    class="col-12 margin-auto text-center"
+                                    style="margin-bottom: 20px"
+                                  >
+                                    <img
+                                      src="assets/images/not-found-icon.svg"
+                                      width="100px"
+                                    />
+                                    <p class="inventory-not-found">
+                                      Sorry, no results found.
+                                    </p>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td colspan="3">
+                                  <div
+                                    class="col-12 margin-auto text-center"
+                                    style="margin-bottom: 20px"
+                                  >
+                                    <img
+                                      src="assets/images/not-found-icon.svg"
+                                      width="100px"
+                                    />
+                                    <p class="inventory-not-found">
+                                      Sorry, no results found.
+                                    </p>
+                                    <p class="inventory-try">
+                                      Please try another search.
+                                    </p>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="dashboard-tabs__pane"
+                        id="tab-balanceHistory"
+                        [ngClass]="{
+                          'dashboard-tabs__pane--active':
+                            tabHistory === 'balanceHistory'
+                        }"
+                      >
+                        <div class="row">
+                          <div class="col-sm-12 col-lg-12">
+                            <div class="inventory-header">
+                              <h1>12</h1>
+                              <div style="display: inline-block">
+                                <span>Savana<br />Land</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div
+                            class="col-8 col-sm-4 col-lg-6 col-xl-3 margin-auto"
+                            *ngFor="let nft of nftList"
+                            style="margin-bottom: 20px"
+                          >
+                            <div class="inventory-bg">
+                              <div class="product-wrapper">
+                                <a>
+                                  <div class="row">
+                                    <div class="col-12">
+                                      <div class="row">
+                                        <div class="col-7">
+                                          <div class="majestic-label">
+                                            Majestic
+                                          </div>
+                                        </div>
+                                        <div class="col-5">
+                                          <p
+                                            class="recent-lv text-right"
+                                            style="color: #fcbf10"
+                                          >
+                                            Lv: <span>100</span>
+                                          </p>
+                                          <img
+                                            src="assets/images/recent-chart-down.svg"
+                                            style="float: right"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-12">
+                                      <div class="nft-image">
+                                        <img [src]="nft?.item_image" />
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                      <div class="row">
+                                        <div class="col-12">
+                                          <div class="btn-inventory-detail">
+                                            <div class="text-center">
+                                              <p>huntar</p>
+                                              <h3>{{ nft?.item_name }}</h3>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,165 @@
+<section style="margin-top: 10px">
+	<div style="height: 450px; background-image: url(assets/images/help-logo.png); background-size: cover; background-color: rgb(255, 255, 255); background-position: center center; opacity: 0.5; filter: blur(8px); -webkit-mask: linear-gradient(rgb(255, 255, 255), transparent);">
+		
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="white-box">
+					 <div class="row">
+					 	<div class="col-sm-3">
+					 		<div class="profile-pic">
+					 			<img class="image" src="assets/images/help-logo.png" >
+					 		</div>
+					 	</div>
+
+					 	<div class="col-sm-7">
+					 		<div class="profile-detail">
+					 			<h1 class="profile-name">HELP University</h1>
+								<p class="profile-address">0x495f94cb495f94495f94495f947b5e</p>
+								<p class="profile-desc">HELP University was founded in 1986 to provide affordable quality educational opportunities for Malaysians. It has since developed into a leading institution of higher learning in Malaysia with an international reputation among universities, research organisations, scholars, business, corporate leaders, and governments. HELP University offers a wide and diverse range of programmes covering business, law, management, economics, IT, the social sciences, and the humanities at undergraduate and graduate levels.</p>
+					 		</div>
+					 		<div class="row">
+					 			<div class="col-sm-3">
+					 				<div>
+					 					<p class="profile-label">Collected</p>
+					 					<p class="profile-count">100</p>
+					 				</div>
+					 			</div>
+					 			<div class="col-sm-3">
+					 				<div>
+					 					<p class="profile-label">Created</p>
+					 					<p class="profile-count">100</p>
+					 				</div>
+					 			</div>
+					 			<div class="col-sm-3">
+					 				<div>
+					 					<p class="profile-label">Favourited</p>
+					 					<p class="profile-count">100</p>
+					 				</div>
+					 			</div>
+					 		</div>
+					 	</div>
+					 	<div class="col-sm-2">
+					 		<button class="main-btn" style="display: inline-block;"><fa-icon  [icon]="faShareAlt" style="margin-right: 15px;"></fa-icon> Share</button>
+					 	</div>
+					 </div>
+
+					 <div class="row" style="margin-top: 20px">
+					 	<div class="col-12">
+					 		<div class="product-tabs">
+							    <div class="product-tabs__list">
+							        <a href="#tab-created" class="product-tabs__item"
+							           [ngClass]="{'product-tabs__item--active': tab === 'created'}"
+							           (click)="$event.preventDefault(); tab = 'created'">Created</a>
+
+							        <a href="#tab-collected" class="product-tabs__item"
+							           [ngClass]="{'product-tabs__item--active': tab === 'collected'}"
+							           (click)="$event.preventDefault(); tab = 'collected'">Collected</a>
+
+							        <a href="#tab-favourited" class="product-tabs__item"
+							           [ngClass]="{'product-tabs__item--active': tab === 'favourited'}"
+							           (click)="$event.preventDefault(); tab = 'favourited'">Favourited</a>
+
+						           
+							    </div>
+							    <div class="product-tabs__content">
+							        <div class="product-tabs__pane" id="tab-created" [ngClass]="{'product-tabs__pane--active': tab === 'created'}">
+						                <div class="row">
+											<div class="col-lg-4 col-sm-6" style="margin-bottom: 30px">
+												<div class="product-wrapper">
+													<div class="zoom-icon" (click)="showQuickview(content)">
+														<fa-icon  [icon]="faSearch" class="zoom"></fa-icon>
+													</div>
+													<a href="product/detail" class="product-detail-link">
+														<div class="nft-image">
+															<img src="assets/images/help-1.png">
+														</div>
+														<ul class="nft-ul">
+															<li>
+																<fa-icon  [icon]="faHeart" class="heart"></fa-icon>
+																<p class="heart-count">12</p>
+															</li>
+															<li>
+																<fa-icon  [icon]="faEye" class="heart"></fa-icon>
+																<p class="heart-count">12</p>
+															</li>
+														</ul>
+														<div class="nft-detail">
+															<h5 class="nft-title">Student - John Smith</h5>
+															<p class="nft-author">HELP University</p>
+														</div>
+														<div style="position: absolute; right: 20px; bottom: 20px">
+															<img src="assets/images/eth.svg" height="20px" style="display :inline-block; margin-right: 10px;">
+															<p class="nft-price">0.001</p>
+														</div>
+													</a>
+												</div>  
+
+												<ng-template #content let-modal>
+													<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<div class="zoom-modal">
+														<div class="modal-body row">
+															<div class="col-lg-5">
+																<img src="assets/images/help-1.png" width="100%" style="border-radius: 10px; margin-bottom: 20px;">
+															</div>
+															<div class="col-lg-7">
+																<div class="zoom-content">
+																	<a href="#" class="zoom-author">HELP University</a>
+																	<h1 class="zoom-title">Student - John Smith</h1>
+																	<p class="zoom-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.</p>
+																	<hr>
+																	<div>
+																		<ul class="zoom-ul">
+																			<li>
+																				<p>Owned by <a href="product" class="zoom-owner-link">John Smith</a></p>
+																			</li>
+																			<li>
+																				<fa-icon  [icon]="faEye" class="heart"></fa-icon>
+																				<p class="heart-count">12</p>
+																			</li>
+																			<li>
+																				<fa-icon  [icon]="faHeart" class="heart"></fa-icon>
+																				<p class="heart-count">12</p>
+																			</li>
+																		</ul>
+																	</div>
+																	<div style="margin-bottom: 40px;">
+																		<img src="assets/images/eth.svg" height="40px" style="display :inline-block; margin-right: 15px;">
+																		<p class="zoom-price">0.001 <span class="amount">(RM 9000.00)</span></p>
+																	</div>
+																	<div class="row">
+																		<div class="col-lg-4 col-sm-6 col-6 ms-auto">
+																			<a href="product/detail" class="main-btn btn" (click)="modal.dismiss('Cross click')"> View More</a>
+																		</div>
+																		<div class="col-lg-4 col-sm-6 col-6">
+																			<a href="#" class="sub-btn btn"> Buy Now</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</ng-template>
+											</div>
+						                </div>
+							        </div>
+
+							        <div class="product-tabs__pane" id="tab-collected" [ngClass]="{'product-tabs__pane--active': tab === 'collected'}">
+							        	Coming Soon...
+							        </div>
+
+							        <div class="product-tabs__pane" id="tab-favourited" [ngClass]="{'product-tabs__pane--active': tab === 'favourited'}">
+							        	Coming Soon...
+							        </div>
+							    </div>
+							</div>
+					 	</div>
+					 </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

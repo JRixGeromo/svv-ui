@@ -1,0 +1,142 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-brown fixed-top">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand" href="#">
+      <div class="logo">
+        <img src="assets/images/logo.svg" />
+      </div>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#main_nav"
+    >
+      <span class="navbar-toggler-icon" style="color: #F2D1A1"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            routerLink="/home"
+            class="nav-link nav-link js-scroll-trigger"
+            routerLinkActive="active"
+            ><img src="assets/images/dashboard.svg" class="menu-icon">Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/mystery-box"
+            class="nav-link nav-link js-scroll-trigger"
+            routerLinkActive="active"
+            ><img src="assets/images/mystery-box.svg" class="menu-icon">Mystery Box
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/product"
+            class="nav-link nav-link js-scroll-trigger"
+            routerLinkActive="active"
+            ><img src="assets/images/marketplace.svg" class="menu-icon">Marketplace
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/faq/privacy-policy"
+            class="nav-link nav-link js-scroll-trigger"
+            routerLinkActive="active"
+            ><img src="assets/images/faq.svg" class="menu-icon">FAQ
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            routerLink="/community"
+            class="nav-link nav-link js-scroll-trigger"
+            routerLinkActive="active"
+            ><img src="assets/images/community.svg" class="menu-icon">Community
+          </a>
+        </li>
+       <li class="nav-item">
+          <a
+            routerLink="/contact-us"
+            class="nav-link nav-link js-scroll-trigger"
+            routerLinkActive="active"
+          >
+            <img src="assets/images/contact-us.svg" class="menu-icon">Contact Us
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <ng-container *ngIf="account; then getAccount else noAccount"></ng-container>
+          <ng-template #getAccount>
+            <li class="nav-item" >
+              <a
+                routerLink="/profile"
+                class="nav-link nav-link js-scroll-trigger btn-contact"
+                routerLinkActive="active"
+              >
+                <div class="wallet-address"><img src="assets/images/wallet-address-icon.svg" class="menu-icon">{{ address | slice:0:15 }}...</div>
+              </a>
+            </li>
+              <li class="nav-item dropdown nav-divider">
+                <a
+                  class="nav-link dropdown-toggle btn-connect"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                 <img src="assets/images/icon.svg" style="margin-right: 15px;">My Account
+                </a>
+                <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown">
+                 <li>
+                    <a class="dropdown-item" href="profile" (click)="profileAccount()">
+                      <img src="assets/images/dropdown-menu-account-icon.svg" class="menu-icon">Account
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile" (click)="profileInventory()">
+                      <img src="assets/images/dropdown-menu-inventory-icon.svg" class="menu-icon">Inventory
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="profile" (click)="profileWallet()">
+                      <img src="assets/images/dropdown-menu-wallet-icon.svg" class="menu-icon">Wallet
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <img src="assets/images/dropdown-menu-setting-icon.svg" class="menu-icon">Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+          </ng-template>
+
+          <ng-template #noAccount>
+            <li class="nav-item" >
+              <a
+                routerLink="/login"
+                class="nav-link nav-link js-scroll-trigger btn-connect"
+                routerLinkActive="active"
+              >
+                <img src="assets/images/connect-wallet.svg" class="menu-icon">Connect Wallet
+              </a>
+            </li>
+
+           <li class="nav-item">
+              <a
+                routerLink="/login"
+                class="nav-link nav-link js-scroll-trigger btn-transparent"
+                routerLinkActive="active"
+              >
+                <img src="assets/images/icon.svg" >
+              </a>
+            </li>
+          </ng-template>
+
+      </ul>
+    </div>
+  </div>
+</nav>

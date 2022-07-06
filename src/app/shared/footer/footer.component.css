@@ -1,0 +1,89 @@
+h3{
+    font-weight: 700;
+    margin-bottom: 20px;
+    color:  #333; 
+}
+
+.footer-content a{
+    color:  #333;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.footer-content a:hover{
+    color:  #E6211A;
+}
+
+.footer-subcontent a {
+    margin-bottom: 0;
+    text-decoration: none;
+    padding-top: 13px;
+    text-transform: capitalize;
+    display: block;
+    color: #707a83;
+    font-size: 14px;
+    font-weight: 400;
+    transition: .5s ease;
+}
+
+.footer-subcontent a:hover{
+    color:  #E6211A;
+}
+
+.sub-footer {
+    background-color: #fff;
+}
+
+.sub-footer p {
+    color: #777;
+    margin-bottom: 0;
+    padding: 20px 0;
+}
+
+.subscribe {
+    height: 100%;
+    align-items: center;
+    border-right: 1px solid #ddd;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.subscribe p{
+    color:  #707a83;
+}
+
+.input{
+    height:  52px;
+    border-radius:  0;
+    margin-bottom: 15px;
+}
+
+.footer-social, .social-white {
+    display: flex;
+    align-items: center;
+}
+
+.social-white{
+    padding-left: 0;
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.social-icon{
+    font-size: 20px;
+    color: #333;
+    transition: .5s ease;
+}
+
+.social-white > li{
+    display: inline-block;
+    padding-right: 45px;
+}
+
+.social-icon:hover{
+    color: #E6211A;
+    text-decoration: none;
+}

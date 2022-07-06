@@ -1,0 +1,475 @@
+<section style="margin-top: 90px">
+  <div class="container">
+    <div class="row">
+      <!-- Total Sales
+      <div class="col-lg-12">
+        <div class="dashboard-card-bg">
+          <div class="dashboard-tabs">
+            <div class="dashboard-tabs__list">
+              <a
+                href="#tab-last24h"
+                class="dashboard-tabs__item"
+                [ngClass]="{
+                  'dashboard-tabs__item--active': tab === 'last24h'
+                }"
+                (click)="$event.preventDefault(); tab = 'last24h'"
+                >Last 24h</a
+              >
+
+              <a
+                href="#tab-7days"
+                class="dashboard-tabs__item"
+                [ngClass]="{
+                  'dashboard-tabs__item--active': tab === '7days'
+                }"
+                (click)="$event.preventDefault(); tab = '7days'"
+                >7 days</a
+              >
+
+              <a
+                href="#tab-30days"
+                class="dashboard-tabs__item"
+                [ngClass]="{ 'dashboard-tabs__item--active': tab === '30days' }"
+                (click)="$event.preventDefault(); tab = '30days'"
+                >30 days</a
+              >
+            </div>
+            <div class="dashboard-tabs__content">
+              <div
+                class="product-tabs__pane"
+                id="tab-last24h"
+                [ngClass]="{ 'product-tabs__pane--active': tab === 'last24h' }"
+              >
+                <div class="row col-lg-11 mx-auto">
+                  <div class="col-lg-4">
+                    <div class="row dashboard-card ">
+                      <div class="col-4">
+                        <img src="assets/images/total-sales.svg">
+                      </div>
+                      <div class="col-8">
+                        <div class="dashboard-result">
+                          <h4>Total sales</h4>
+                          <p>457</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="row dashboard-card ">
+                      <div class="col-4">
+                        <img src="assets/images/total-volume.svg">
+                      </div>
+                      <div class="col-8">
+                        <div class="dashboard-result">
+                          <h4>Total volume</h4>
+                          <p>20,743</p> <span>$2489.88</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="row dashboard-card ">
+                      <div class="col-4">
+                        <img src="assets/images/average-price.svg">
+                      </div>
+                      <div class="col-8">
+                        <div class="dashboard-result">
+                          <h4>Average price</h4>
+                          <p>42</p> <span>$5.67</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+
+      <div class="col-lg-12">
+        <p style="margin-bottom: 15px;">Recently Listed</p>
+        <div class="dashboard-card-bg">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="dashboard-tabs">
+                <div class="dashboard-tabs__list">
+                  <a
+                    href="#tab-lifeListed"
+                    class="dashboard-tabs__item"
+                    [ngClass]="{
+                      'dashboard-tabs__item--active': tabListed === 'lifeListed'
+                    }"
+                    (click)="$event.preventDefault(); tabListed = 'lifeListed'"
+                    >Savanna life</a
+                  >
+                  <a
+                    href="#tab-landListed"
+                    class="dashboard-tabs__item"
+                    [ngClass]="{ 'dashboard-tabs__item--active': tabListed === 'landListed' }"
+                    (click)="$event.preventDefault(); tabListed = 'landListed'"
+                    >Savanna land</a
+                  >
+                </div>
+                <div class="dashboard-tabs__content">
+                  <div class="dashboard-tabs__pane" id="tab-lifeListed" [ngClass]="{ 'dashboard-tabs__pane--active': tabListed === 'lifeListed' }" >
+                    <div class="row m-0">
+                      <div *ngIf="!nftList" class="dashboard-loading"> <img src="assets/images/loading.svg" width="75px"></div>
+                      <div class="col-lg-6" *ngFor="let nft of nftList">
+                        <div class="row recent-card">
+                          <div class=" col-sm-3 col-lg-2 my-auto">
+                            <img [src]="nft.item_image ? nft.item_image : 'assets/images/nft-sample.svg'" width="80px" height="80px" class="recent-img">
+                          </div>
+                          <div class="col-lg-4 col-sm-4 my-auto">
+                            <div class="recent-description">
+                              <div class="majestic-label">Majestic</div>
+                              <div class="row">
+                                <div class="col-8 pe-0">
+                                  <p>{{ nft.item_name }}</p>
+                                </div>
+                                <div class="col-4 ps-0">
+                                  <p class="recent-lv">Lv: <span>100</span></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="recent-chart">
+                                    <img src="assets/images/recent-chart-down.svg" >9999
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="danger-label"># 8776520</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-lg-2 my-auto">
+                            <div class="row">
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-1.svg" ><span class="text-yellow">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-2.svg" ><span class="text-blue">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-3.svg" ><span class="text-green">9999</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class=" col-sm-3 col-lg-4 my-auto">
+                            <div class="row">
+                              <div class="col-10 p-0">
+                                <div class="btn-price">
+                                  <img src="assets/images/price-unit.svg">457 <span>$2459.89</span>
+                                </div>
+                              </div>
+                              <div class="col-2 p-0">
+                                <a href="product/detail/{{ nft._id }}"><div class="btn-detail text-right">&nbsp;</div></a>
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6 ms-auto cursor-pointer" (click)="product()"  *ngIf="nftList">
+                        <div class="row recent-card my-auto">
+                          <div class="col-10 p-0 my-auto" style="height: 45px">
+                            view more on marketplace 
+                          </div>
+                          <div class="col-2 p-0 ms-auto">
+                            <div class="btn-detail text-right">&nbsp;</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-tabs__pane" id="tab-landListed" [ngClass]="{ 'dashboard-tabs__pane--active': tabListed === 'landListed' }" >
+                     <div class="row m-0">
+                      <div *ngIf="!nftList" class="dashboard-loading"> <img src="assets/images/loading.svg" width="75px"></div>
+                      <div class="col-lg-6" *ngFor="let nft of nftList">
+                        <div class="row recent-card">
+                          <div class=" col-sm-3 col-lg-2 my-auto">
+                            <img [src]="nft.item_image ? nft.item_image : 'assets/images/nft-sample.svg'" width="80px" height="80px" class="recent-img">
+                          </div>
+                          <div class="col-lg-4 col-sm-4 my-auto">
+                            <div class="recent-description">
+                              <div class="majestic-label">Majestic</div>
+                              <div class="row">
+                                <div class="col-8 pe-0">
+                                  <p>{{ nft.item_name }}</p>
+                                </div>
+                                <div class="col-4 ps-0">
+                                  <p class="recent-lv">Lv: <span>100</span></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="recent-chart">
+                                    <img src="assets/images/recent-chart-down.svg" >9999
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="danger-label"># 8776520</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-lg-2 my-auto">
+                            <div class="row">
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-1.svg" ><span class="text-yellow">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-2.svg" ><span class="text-blue">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-3.svg" ><span class="text-green">9999</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class=" col-sm-3 col-lg-4 my-auto">
+                            <div class="row">
+                              <div class="col-10 p-0">
+                                <div class="btn-price">
+                                  <img src="assets/images/price-unit.svg">457 <span>$2459.89</span>
+                                </div>
+                              </div>
+                              <div class="col-2 p-0">
+                                <a href="product/detail/{{ nft._id }}"><div class="btn-detail text-right">&nbsp;</div></a>
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6 ms-auto cursor-pointer" (click)="product()"  *ngIf="nftList">
+                        <div class="row recent-card my-auto">
+                          <div class="col-10 p-0 my-auto" style="height: 45px">
+                            view more on marketplace 
+                          </div>
+                          <div class="col-2 p-0 ms-auto">
+                            <div class="btn-detail text-right">&nbsp;</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <div class="col-lg-6">
+        <p style="margin-bottom: 15px;">Recently sold</p>
+        <div class="dashboard-card-bg">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="dashboard-tabs">
+                <div class="dashboard-tabs__list">
+                  <a
+                    href="#tab-lifeSold"
+                    class="dashboard-tabs__item"
+                    [ngClass]="{
+                      'dashboard-tabs__item--active': tabSold === 'lifeSold'
+                    }"
+                    (click)="$event.preventDefault(); tabSold = 'lifeSold'"
+                    >Savanna life</a
+                  >
+                  <a
+                    href="#tab-landSold"
+                    class="dashboard-tabs__item"
+                    [ngClass]="{ 'dashboard-tabs__item--active': tabSold === 'landSold' }"
+                    (click)="$event.preventDefault(); tabSold = 'landSold'"
+                    >Savanna land</a
+                  >
+                </div>
+                <div class="dashboard-tabs__content">
+                  <div class="dashboard-tabs__pane" id="tab-lifeSold" [ngClass]="{ 'dashboard-tabs__pane--active': tabSold === 'lifeSold' }" >
+                     <div class="row m-0">
+                      <div *ngIf="!nftList" class="dashboard-loading"> <img src="assets/images/loading.svg" width="75px"></div>
+                      <div class="col-lg-12" *ngFor="let nft of nftList">
+                        <div class="row recent-card">
+                          <div class=" col-sm-3 col-lg-2 my-auto">
+                            <img [src]="nft.item_image ? nft.item_image : 'assets/images/nft-sample.svg'" width="80px" height="80px" class="recent-img">
+                          </div>
+                          <div class="col-lg-4 col-sm-4 my-auto">
+                            <div class="recent-description">
+                              <div class="majestic-label">Majestic</div>
+                              <div class="row">
+                                <div class="col-8 pe-0">
+                                  <p>{{ nft.item_name }}</p>
+                                </div>
+                                <div class="col-4 ps-0">
+                                  <p class="recent-lv">Lv: <span>100</span></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="recent-chart">
+                                    <img src="assets/images/recent-chart-down.svg" >9999
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="danger-label"># 8776520</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-lg-2 my-auto">
+                            <div class="row">
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-1.svg" ><span class="text-yellow">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-2.svg" ><span class="text-blue">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-3.svg" ><span class="text-green">9999</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class=" col-sm-3 col-lg-4 my-auto">
+                            <div class="row">
+                              <div class="col-10 p-0">
+                                <div class="btn-price">
+                                  <img src="assets/images/price-unit.svg">457 <span>$2459.89</span>
+                                </div>
+                              </div>
+                              <div class="col-2 p-0">
+                                <a href="product/detail/{{ nft._id }}"><div class="btn-detail text-right">&nbsp;</div></a>
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6 ms-auto cursor-pointer" (click)="product()"  *ngIf="nftList">
+                        <div class="row recent-card my-auto">
+                          <div class="col-10 p-0 my-auto" style="height: 45px">
+                            view more on marketplace 
+                          </div>
+                          <div class="col-2 p-0 ms-auto">
+                            <div class="btn-detail text-right">&nbsp;</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-tabs__pane" id="tab-landSold" [ngClass]="{ 'dashboard-tabs__pane--active': tabSold === 'landSold' }" >
+                     <div class="row m-0">
+                      <div *ngIf="!nftList" class="dashboard-loading"> <img src="assets/images/loading.svg" width="75px"></div>
+                      <div class="col-lg-12" *ngFor="let nft of nftList">
+                        <div class="row recent-card">
+                          <div class=" col-sm-3 col-lg-2 my-auto">
+                            <img [src]="nft.item_image ? nft.item_image : 'assets/images/nft-sample.svg'" width="80px" height="80px" class="recent-img">
+                          </div>
+                          <div class="col-lg-4 col-sm-4 my-auto">
+                            <div class="recent-description">
+                              <div class="majestic-label">Majestic</div>
+                              <div class="row">
+                                <div class="col-8 pe-0">
+                                  <p>{{ nft.item_name }}</p>
+                                </div>
+                                <div class="col-4 ps-0">
+                                  <p class="recent-lv">Lv: <span>100</span></p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="recent-chart">
+                                    <img src="assets/images/recent-chart-down.svg" >9999
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="danger-label"># 8776520</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-2 col-lg-2 my-auto">
+                            <div class="row">
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-1.svg" ><span class="text-yellow">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-2.svg" ><span class="text-blue">9999</span>
+                                </div>
+                              </div>
+                              <div class="col-4 col-sm-12 col-lg-12">
+                                <div class="recent-skill">
+                                    <img src="assets/images/skill-3.svg" ><span class="text-green">9999</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class=" col-sm-3 col-lg-4 my-auto">
+                            <div class="row">
+                              <div class="col-10 p-0">
+                                <div class="btn-price">
+                                  <img src="assets/images/price-unit.svg">457 <span>$2459.89</span>
+                                </div>
+                              </div>
+                              <div class="col-2 p-0">
+                                <a href="product/detail/{{ nft._id }}"><div class="btn-detail text-right">&nbsp;</div></a>
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-lg-6 ms-auto cursor-pointer" (click)="product()"  *ngIf="nftList">
+                        <div class="row recent-card my-auto">
+                          <div class="col-10 p-0 my-auto" style="height: 45px">
+                            view more on marketplace 
+                          </div>
+                          <div class="col-2 p-0 ms-auto">
+                            <div class="btn-detail text-right">&nbsp;</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    -->
+    </div>
+  </div>
+</section>

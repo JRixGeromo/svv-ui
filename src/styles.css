@@ -1,0 +1,799 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~swiper/swiper-bundle';
+
+*{
+	font-family: 'Exo 2', sans-serif;
+	line-height: 1.75;
+	font-size: 16px;
+}
+
+
+body{
+	background: #724428;
+	color:  #FDECCD;
+}
+
+p{
+	color:  #FDECCD;
+	margin-bottom: 0px;
+}
+
+
+section{
+	padding:  60px 0;
+}
+
+a {
+	color:  #FFB100;
+ 	transition: .5s ease;
+ 	text-decoration: none;
+}
+
+a:hover {
+ 	text-decoration: none;
+	color:  #2E1212;
+}
+
+.main-btn{
+	width: 100%;
+	border: 2px solid #E6211A;
+	border-radius: 10px;
+	padding: 10px 7.5px;
+	color: #E6211A;
+	background-color:  #fff;
+	font-weight: 600;
+	text-align: center;
+	margin-bottom: 15px;
+  transition: all .3s;
+  text-decoration:  none;
+}
+
+.main-btn:hover {
+	text-decoration: none;
+	background: #E6211A;
+	color: #fff;
+}
+
+.sub-btn{
+	width: 100%;
+	border-radius: 10px;
+	padding: 10px 7.5px;
+	background-color: #2E1212;
+	color:  #FBF1DA;
+	font-weight: 600;
+	text-align: center;
+	margin-bottom: 15px;
+  transition: all .3s;
+  text-decoration:  none;
+}
+
+.sub-btn:hover {
+	text-decoration: none;
+	background: #953E37;
+	color:  #FBF1DA;
+}
+
+.detail-title{
+	margin-bottom: 30px;
+	font-weight: 700;
+	font-size: 28px;
+}
+
+.select-option{
+	cursor: pointer;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 7.5px;
+    border: 1px solid rgb(229, 232, 235);
+    width: 100%;
+    padding: 12px;
+}
+
+
+/* product */
+
+.result-count{
+	height: 100%;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.zoom-icon{
+	opacity: 0;
+	position: absolute;
+	right:  0;
+	top:  0;
+	color:  #333;
+	overflow: hidden;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 0px;
+	width: 40px;
+	height: 40px;
+ 	transition: all 0.2s;
+}
+
+.zoom{
+	text-align: center;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	vertical-align: middle;
+	margin-top:  7px;
+}
+
+.zoom-modal{
+	padding: 60px; 
+	min-height: 600px;
+}
+
+.product-wrapper{
+	width: 100%;
+	height: 100%;
+  transition: box-shadow 0.2s;
+	display: block;
+	position: relative;
+}
+
+
+.product-bg{
+	padding: 30px 20px;
+	background: url(assets/images/product-bg.png)no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+  background-origin: border-box;
+}
+
+.product-row-bg{
+	padding: 30px 20px;
+	background: url(assets/images/product-row-bg.png)no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+  background-origin: border-box;
+}
+
+.nft-image {
+	height: 120px;
+	width: 120px;
+	object-fit: cover;
+	margin:  7.5px auto;
+}
+
+.nft-image img{
+	display: block;
+	margin: auto;
+	border-radius: 10px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin-bottom: 20px;
+}
+
+.nft-detail{
+	margin-bottom: 20px;
+}
+
+.nft-author {
+	text-decoration: none;
+	color:  #707a83;
+	font-size: 12px;
+	margin-bottom: 30px;
+}
+
+.nft-title{
+	font-weight: 600;
+	font-size: 16px;
+	margin-bottom: 2.5px;
+	color:  #333;
+}
+
+.nft-price{
+	font-size: 15px;
+	font-weight: 550;
+	display: inline-block;
+	color:  #333;
+	margin-bottom: 0;
+}
+
+.product-detail-link{
+	text-decoration: none;
+}
+
+.time{
+	font-size: 15px;
+	color:  #707a83;
+}
+
+.nft-time{
+	font-size: 11px;
+	display: inline-block;
+	color:  #707a83;
+    position: relative;
+    top: -4px;
+    left: 10px;
+    margin-bottom: 0;
+}
+
+/*Zoom*/
+
+.close{
+	position: absolute;
+    top: 20px;
+    right:  20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+		background:  url(assets/images/close.svg)!important;
+		background-size: 100% 100%!important;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.2s;
+    z-index: 2;
+    font-size:  40px;
+    color:  transparent;
+    box-shadow: none;
+    outline: 0;
+}
+
+.close > span{
+	font-size: 32px;
+}
+
+.zoom-author{
+	color:  #707a83;
+	font-size: 14px;
+	margin-bottom: 3px;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+
+.zoom-author:hover{
+	text-decoration: underline;
+}
+
+
+.zoom-title{
+	margin-bottom: 0; 
+	font-size: 36px; 
+	font-weight: 700;
+	line-height: 1.5;
+}
+.zoom-desc{
+	line-height: 1.75;
+    margin-bottom: 30px;
+	color:  #666;
+}
+
+hr{
+  height: 1px;
+  background-color: #333;
+  border: none;
+  margin: 1.5rem 0;
+}
+
+
+.nft-ul{
+  display:flex;  
+  list-style:none;
+  padding-left: 0;
+  margin-bottom: 5px;
+}
+
+.nft-ul li{
+  margin-right:  30px;
+}
+
+.nft-ul li > p{
+	color: #707a83;
+	font-size: 16px;
+}
+
+.zoom-ul{
+  display:flex;  
+  list-style:none;
+  padding-left: 0;
+  margin-bottom: 5px;
+}
+
+.zoom-ul li{
+  margin-right:  30px;
+}
+
+.zoom-ul li > p{
+	color: #707a83;
+	font-size: 16px;
+}
+
+.zoom-price{
+	font-size: 28px;
+	font-weight: 600;
+	display: inline-block;
+	margin-bottom: 0;
+	position: relative;
+	top:  5px;
+}
+
+.amount{
+	color:  #707a83;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.zoom-content{
+	padding: 0 20px
+}
+
+.zoom-owner-link{
+	color:  #E6211A;
+	text-decoration: none;
+    transition: all .3s;
+}
+
+
+.zoom-owner-link:hover{
+	color:  #E6211A;
+	text-decoration: underline;
+}
+
+@media(max-width:  600px){
+
+	.zoom-modal{
+		padding: 0px; 
+	}
+
+	.zoom-content{
+		padding: 0px;
+	}
+}
+
+
+@media(max-width:  768px){
+
+	.result-count{
+		display: block;
+		margin-bottom: 20px;
+	}
+
+	.nft-image{
+		max-height: 100%;
+	}
+	.nft-image img{
+		max-height: 100%;
+		width: 100%;
+	}
+
+	.zoom-modal{
+		padding: 15px; 
+	}
+
+	.zoom-ul{
+	  display:block;  
+	}
+
+	.zoom-ul li > p{
+		margin-bottom: 0;
+	}
+
+}
+
+.modal-content{
+	background: #3A0F10!important;
+	border-radius: 10px!important;
+}
+
+.modal-backdrop{
+	background-color: #23100E!important;
+}
+
+.modal-backdrop.show{
+	opacity: 0.90!important;
+}
+
+.product-table > thead > tr > th{
+	white-space: nowrap;
+	text-align: center;
+}
+
+
+.product-table > tbody > tr > td{
+	white-space: nowrap;
+	word-break: break-all;
+	padding: 15px;
+}
+
+
+.product-table > tbody > tr > td > p{
+	margin-bottom: 0;
+}
+
+
+
+.product-table > tbody > tr > td > p, .product-table > tbody > tr > td > button{
+	margin-bottom: 0;
+}
+
+
+.ngx-slider .ngx-slider-pointer {
+    cursor: pointer;
+    width: 20px!important;
+    height: 20px!important;
+    top: -8px!important;
+    background-color: #E0A02F!important;
+    z-index: 3;
+    border-radius: 16px;
+}
+
+.ngx-slider .ngx-slider-pointer:after {
+    content: "";
+    width: 14px!important;
+    height: 14px!important;
+    position: absolute;
+    top: 3px!important;
+    left: 3px!important;
+    border-radius: 16px!important;
+    background: #591A1A!important;
+    outline:  0!important;
+}
+
+.ngx-slider .ngx-slider-selection {
+    z-index: 2;
+    background: #230202!important;
+    border-radius: 2px;
+}
+
+.ngx-slider .ngx-slider-bar {
+    background: #230202!important;
+}
+
+.ngx-slider .ngx-slider-bubble {
+    color: #FDECCD!important;
+}
+
+.ngx-slider .ngx-slider-pointer:hover:after{
+	background-color: #230202!important;
+}
+
+.custom-slider{
+	margin-bottom:  20px!important;
+}
+
+
+.highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+	stroke: #90ed7d;
+}
+
+.ngx-slider .ngx-slider-pointer:focus-visible {
+  outline: 0!important;
+}
+
+.ngx-slider .ngx-slider-bar {
+    background: #f3d8d8;
+
+}
+
+.detail-img{
+	padding: 15px;
+	background:  #23100E;
+}
+
+button:disabled,
+button[disabled]{
+  cursor: not-allowed!important;
+  opacity: 0.5;
+  pointer-events: none
+}
+
+
+.majestic-label{
+	background: url(assets/images/majestic-label.svg)no-repeat;
+	color:  #300701;
+	text-align: center;
+	background-size: 100%;
+	font-size:  15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	margin-bottom: 5px;
+}
+
+
+.unknown-label{
+	background: url(assets/images/unknown-label.svg)no-repeat;
+	color:  #300701;
+	text-align: center;
+	background-size: 100%;
+	font-size:  15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 45px;
+	margin-bottom: 5px;
+}
+
+.danger-label{
+	border-radius: 5px;
+	border: 1px solid #FF0200;
+	color: #FF0200;
+	text-align: center;
+	background-size: 100%;
+	font-weight: 400;
+	font-size:  15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 35px;
+	margin-bottom: 10px;
+}
+
+.text-yellow{
+	color: #FFE51A!important;
+}
+
+.text-blue{
+	color: #26D5FF!important;
+}
+
+.text-green{
+	color: #00FE3B!important;
+}
+
+.btn-price{
+	background: url(assets/images/price-tag-bg.svg)no-repeat;
+	color:  #FCBF10;
+	background-size: 100%;
+	font-size:  18px;
+	height:  45px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn-price img{
+	width: 20px;
+	margin-right: 10px;
+}
+
+.btn-price span{
+	margin-left: 10px;
+	color:  #fff;
+	font-size: 10px;
+}
+
+.btn-detail{
+	background: url(assets/images/view-more.svg)no-repeat;
+	background-size: 100%;
+	height:  45px;
+	margin-top:  4.5px;
+	width: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 7.5px;
+}
+
+.cursor-pointer{
+	cursor:  pointer!important;
+}
+
+.detail-header{
+	color:  #FFB100;
+	background: #3A0F10;
+	border-radius: 5px;
+	margin-bottom: 0;
+	font-size: 24px;
+	text-align: center;
+	padding: 5px;
+}
+
+.detail-owner-text{
+	color: #FFB100;
+	margin-left: 10px;
+}
+
+.text-right{
+	text-align: right!important;
+}
+
+.detail-lv{
+	color: #FFB100;
+	font-size: 24px!important;
+}
+
+
+.detail-lv span{
+	color: #FFB100;
+	font-size: 24px!important;
+}
+
+.detail-name-text{
+	font-size: 24px;
+}
+
+.detail-badge-icon{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	margin-right: 15px
+}
+
+.detail-tab-title{
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.detail-tab-desc{
+	font-size: 18px;
+	color: #FFB100;
+	font-weight: 700;
+}
+
+.detail-skill-badge{
+	margin-top:  5px;
+}
+
+.detail-skill-badge img{
+	width: 25px;
+}
+
+.detail-skill-badge span{
+	float:  right;
+	font-size: 18px;
+}
+
+.detail-btn-price{
+	background: url(assets/images/detail-btn-price.svg)no-repeat;
+	background-size: 100%;
+	height:  50px;
+	margin-top:  7.5px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-bottom:  10px;
+	justify-content: center;
+}
+
+.detail-btn-price img{
+	width: 30px;
+	margin-right: 20px;
+}
+
+.detail-btn-price div{
+	text-align: center;
+	color:  #F2D1A1!important;
+}
+
+.detail-btn-price div span{
+	color:  #FBB03B;
+	font-size: 12px;
+	line-height: 1; 
+	margin-left: 15px;
+}
+
+.btn-buy{
+	background: url(assets/images/btn-buy.svg)no-repeat;
+	background-size: 100%;
+	height:  70px;
+	margin-top:  10px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.btn-buy img{
+	width: 40px;
+	margin-right: 20px;
+}
+
+.btn-buy div{
+	text-align: center;
+	color:  #3F0B0E;
+	font-size: 24px;
+}
+
+.btn-buy div span{
+	color:  #3F0B0E;
+	font-size: 16px;
+	line-height: 1;
+}
+
+
+.detail-bg{
+	background: url(assets/images/detail-bg.png)no-repeat 0px -5px;
+	background-size: 100% 100%;
+	height:  100%;
+	padding: 20px 50px;
+	min-height: 660px;
+  background-origin: border-box;
+}
+
+.f-700{
+	font-weight: 700;
+}
+
+.f-400{
+	font-weight: 400;
+}
+
+.f-600{
+	font-weight: 600;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #170A06; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F2D1A1; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #F2D1A1; 
+}
+
+.btn-close{
+	background:  url(assets/images/close.svg)!important;
+	background-size: 100% 100%!important;
+	opacity: 1!important;
+}
+
+
+.btn-cancel{
+	cursor: pointer;
+	background: url(assets/images/btn-cancel.svg)no-repeat;
+	background-size: 100% 100%;
+	padding: 10px 15px;
+	border-radius: 5px;
+	text-align: center;
+	margin-bottom: 20px;
+
+}
+
+.btn-cancel:hover{
+	transition: all 0.2s ease 0s;
+	background: url(assets/images/btn-modal-hover.svg)no-repeat;
+	background-size: 100% 100%;
+	padding: 10px 15px;
+	border-radius: 5px;
+
+}
+
+
+.btn-modal{
+	cursor: pointer;
+	background: url(assets/images/btn-modal.svg)no-repeat;
+	background-size: 100% 100%;
+	padding: 10px 15px;
+	border-radius: 5px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+.btn-modal:hover{
+	transition: all 0.2s ease 0s;
+	background: url(assets/images/btn-modal-hover.svg)no-repeat;
+	background-size: 100% 100%;
+	padding: 10px 15px;
+	border-radius: 5px;
+}

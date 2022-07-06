@@ -1,0 +1,25 @@
+h2{
+	color: #FFB100 ;
+}
+
+.btn-community{
+    background: url(../../assets/images/community-label.svg)no-repeat;
+    color:  #FDECCD;
+    text-align: center;
+    background-size: 180px;
+    font-size: 18px;
+    display: flex;
+    width: 180px;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin:  auto;
+    text-decoration: none;
+    margin-top:  10px;
+}
+
+.community-social{
+	margin-bottom: 20px;
+}

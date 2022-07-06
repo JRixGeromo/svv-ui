@@ -1,0 +1,79 @@
+h2{
+	color: #FFB100 ;
+    margin-bottom: 40px;
+}
+
+p{
+    margin-bottom: 7.5px;
+}
+
+.btn-community{
+    background: url(../../assets/images/community-label.svg)no-repeat;
+    color:  #FDECCD;
+    text-align: center;
+    background-size: 180px;
+    font-size: 18px;
+    display: flex;
+    width: 180px;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin:  auto;
+    text-decoration: none;
+    margin-top:  10px;
+}
+
+.community-social{
+	margin-bottom: 20px;
+}
+
+.contact-input{
+    background: #330609;
+    padding: 10px 20px;
+    height:  48px;
+    margin-bottom: 20px;
+    border-radius: 7.5px;
+    color:  #FDECCD;
+    border:  0;
+}
+
+.contact-input::-webkit-input-placeholder { /* Edge */
+  color: #96342E;
+}
+
+.contact-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #96342E;
+}
+
+.contact-input::placeholder {
+  color: #96342E;
+}
+
+
+textarea.contact-input {
+    height:  auto;
+    margin-bottom:  20px;
+}
+
+
+.contact-btn{
+    margin-top:  40px;
+    cursor: pointer;
+    background: url(../../assets/images/btn-login.svg)no-repeat;
+    background-size: 100% 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.contact-btn:hover{
+    transition: all 0.2s ease 0s;
+    background: url(../../assets/images/btn-login-hover.svg)no-repeat;
+    background-size: 100% 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+}

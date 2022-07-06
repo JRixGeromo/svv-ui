@@ -1,0 +1,157 @@
+<section style="margin-top: 60px">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 mx-auto mb-4">
+        <h2>Create new item</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-10 mx-auto">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row">
+            <div class="cols-sm-12 mb-3">
+              <label for="link" class="form-label d-block"
+                >Item Image <span>*</span>:
+              </label>
+              <label
+                >File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV,
+                OGG, GLB, GLTF. Max size: 40 MB</label
+              >
+              <ngx-dropzone
+                class="dropzone-custom p-0"
+                (change)="onSelect($event)"
+                accept="image/*"
+                [multiple]="false"
+              >
+                <ngx-dropzone-label
+                  >Drop files here or click to Add.</ngx-dropzone-label
+                >
+                <ngx-dropzone-preview
+                  *ngFor="let f of files"
+                  [removable]="true"
+                  (removed)="onRemove(f)"
+                >
+                  <ngx-dropzone-label
+                    >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                  >
+                </ngx-dropzone-preview>
+              </ngx-dropzone>
+            </div>
+            <div class="col-sm-6 mb-3">
+              <div class="form-group">
+                <label for="link" class="form-label"
+                  >Item Name <span>*</span>:
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Item Name"
+                  name="name"
+                  required
+                  [class.is-invalid]="errors['name']"
+                  [ngModel]="create?.name"
+                />
+                <div class="invalid-feedback" *ngIf="errors['name']">
+                  {{ errors["name"] }}
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-3">
+              <label for="properties" class="form-label">Collection: </label>
+              <angular2-multiselect
+                [data]="selectCollection"
+                style="padding: 0px"
+                class="form-control{{
+                  errors['collection'] ? ' is-invalid' : ''
+                }}"
+                [(ngModel)]="selectedCollection"
+                [ngModelOptions]="{ standalone: true }"
+                [settings]="settingCollection"
+              >
+              </angular2-multiselect>
+              <div class="invalid-feedback" *ngIf="errors['collection']">
+                {{ errors["collection"] }}
+              </div>
+            </div>
+            <div class="col-sm-12 mb-3">
+              <label for="description" class="form-label"
+                >Item Description :
+              </label>
+              <textarea
+                class="form-control"
+                id="description"
+                name="description"
+                rows="3"
+                placeholder="Item Description"
+                [ngModel]="create?.description"
+              ></textarea>
+            </div>
+            <!--
+					  	<div class="col-sm-12 mb-3">
+						    <label for="properties" class="form-label">Properties: </label>
+						    <input type="text" class="form-control" id="properties" name="properties">
+					  	</div>
+					  	<div class="col-sm-12 mb-3">
+						    <label for="levels" class="form-label">Levels: </label>
+						    <input type="text" class="form-control" id="levels" name="levels">
+					  	</div>
+					  	<div class="col-sm-12 mb-3">
+						    <label for="stats" class="form-label">Stats: </label>
+						    <input type="text" class="form-control" id="stats" name="stats">
+					  	</div>
+					  	<div class="col-sm-12 mb-3">
+						    <label for="stats" class="form-label">Unlockable Content: </label>
+					  	</div>
+					  -->
+            <div class="col-sm-6 mb-3">
+              <label for="supply" class="form-label">Supply: </label>
+              <input
+                type="number"
+                class="form-control"
+                id="supply"
+                name="supply"
+                disabled
+                value="1"
+              />
+            </div>
+            <div class="col-sm-6 mb-3">
+              <label for="description" class="form-label">Royalties : </label>
+              <input
+                class="form-control"
+                id="royalty"
+                name="royalty"
+                rows="3"
+                placeholder="Royalties (%)"
+                [ngModel]="create?.royalties"
+                type="number"
+                max="95"
+              />
+            </div>
+            <div class="col-sm-12 mb-3">
+              <label for="supply" class="form-label">Blockchain: </label>
+              <angular2-multiselect
+                [data]="selectBlockchain"
+                style="padding: 0px"
+                class="form-control{{
+                  errors['blockchain'] ? ' is-invalid' : ''
+                }}"
+                [(ngModel)]="selectedBlockchain"
+                [ngModelOptions]="{ standalone: true }"
+                [settings]="settingBlockchain"
+              >
+              </angular2-multiselect>
+              <div class="invalid-feedback" *ngIf="errors['blockchain']">
+                {{ errors["blockchain"] }}
+              </div>
+            </div>
+            <div class="col-sm-3 ms-auto mt-4 mb-3">
+              <button type="submit" class="sub-btn btn">
+                {{ this.submitting ? "Submitting.." : "Submit" }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

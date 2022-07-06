@@ -1,0 +1,148 @@
+.logo img{
+  max-height:90px;
+}
+
+.navbar{
+  padding:  0;
+}
+
+.navbar-brand{
+  padding:  0 15px;
+}
+.navbar .megamenu { 
+  padding: 30px; 
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+  color: #FBF1DA!important;
+  width: 100%;
+  font-size: 14px;
+  position: relative;
+}
+
+.bg-brown{
+  background: #2E1212!important;
+}
+
+
+@media all and (min-width: 992px) {
+  .navbar .has-megamenu {
+    position:static!important;
+  }
+
+  .navbar .megamenu {
+    left:0; 
+    right:0;
+    width:100%; 
+    margin-top:0;  
+  }
+
+} 
+
+@media(max-width: 991px){
+  .navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse {
+    overflow-y: auto;
+      max-height: 90vh;
+      margin-top:10px;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 20px;
+      padding-left: 20px;
+  }
+
+  .dropdown-menu {
+      position: absolute!important;
+  }
+}
+
+.active{
+    background: #724428!important;
+    color: #FBF1DA!important;
+}
+
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 20px;
+      padding-left: 20px;
+  }
+}
+
+.nav-item{
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    height:  100%;
+}
+
+
+.nav-link.active{
+    background: #724428!important;
+    color: #FBF1DA!important;
+}
+
+
+.nav-link:hover{
+    color: #FBF1DA!important;
+    background: #724428!important;
+}
+
+.menu-icon{
+  display: inline-block;
+  margin-right: 15px;
+}
+.nav-item:hover > .nav-link:before {
+    width: 100%;
+}
+
+
+.btn-contact{
+  background: #3A0F10!important;
+}
+
+.btn-connect{
+  background: #5B2525!important;
+}
+
+.btn-transparent{
+  background: transparent!important;
+}
+
+.wallet-address{
+  color: #FFB100;
+}
+
+.btn-connect:after{
+  margin-left: 10px;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+  background:  url(../../../assets/images/dropdown-bg.png)no-repeat!important;
+  background-position: 100% 100%!important;
+  background-repeat: no-repeat!important;
+  background-size: cover!important;
+  width:  100%;
+  padding: 2px 0!important;
+  border:  4px solid #5B2525;
+  background-origin: border-box;
+}
+
+.dropdown-item{
+  padding:  15px 10px 10px 30px;
+  color:  #FDECCD;
+}
+
+.dropdown-item:hover{
+  background:  rgba(35, 16,  14, 0.5);
+}
+

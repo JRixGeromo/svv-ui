@@ -1,0 +1,185 @@
+<section style="margin-top: 90px; background: #23100E; min-height: calc(100vh - 90px)">
+  <div class="container my-auto">
+    <div class="row">
+      <div class="col-sm-4 mx-auto text-center my-auto">
+        <h2 style="margin-bottom:20px">CONNECT WALLET</h2>
+        <p style="margin-bottom: 40px">Connect with your  wallet or create a new wallet to join our marketplace. </p>
+        <div>
+          <div class="login-btn" (click)="open(wallet)">
+            <img src="assets/images/wallet-icon.svg" height="25" style="display: inline-block; margin-right: 20px;">
+            Connect wallet
+          </div>
+          <!-- Wallet List Modal -->
+          <ng-template #wallet let-modal>
+            <div class="detail-modal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <h4 style="color: #FBB03B" 
+                      class="modal-title ms-0 mb-4 text-center"
+                      id="modal-basic-title "
+                    >
+                      Select your wallet
+                    </h4>
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="wallet-list">
+                      <div class="login-btn" (click)="metamaskLogin()">
+                        <img src="assets/images/metamask.svg" height="25" style="display: inline-block; margin-right: 20px;">
+                        Metamask
+                      </div>
+                      <!--
+                      <div class="login-btn" (click)="open(connect);modal.dismiss('Cross click')">
+                        <img src="assets/images/walletconnect.svg" height="25" style="display: inline-block; margin-right: 20px;">
+                        Walletconnect
+                      </div>
+                       <div class="login-btn" (click)="open(install);modal.dismiss('Cross click')">
+                        <img src="assets/images/polygon.svg" height="25" style="display: inline-block; margin-right: 20px;">
+                        polygon
+                      </div>
+                      <div class="login-btn" (click)="open(download);modal.dismiss('Cross click')">
+                        <img src="assets/images/robinhood.svg" height="25" style="display: inline-block; margin-right: 20px;">
+                        robinhood
+                      </div>
+                    -->
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- Connect your Wallet modal -->
+          <ng-template #connect let-modal>
+            <div class="detail-modal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-12">
+
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center" style="padding: 30px 20px">
+                      <img src="assets/images/wallet-icon.svg" height="80" style="text-align: center; display: block; margin: 20px auto">
+                      <h4 style="color: #FBB03B" 
+                        class="modal-title ms-0 mb-1 text-center"
+                        id="modal-basic-title "
+                      >
+                        CONNECT WALLET
+                      </h4>
+                      <p style="margin-bottom: 40px;">Please connect your wallet.</p>
+                      <div class="row col-lg-10 mx-auto">
+                        <div class="col-6">
+                          <div class="btn-cancel"  (click)="modal.dismiss('Cross click')">
+                            CANCEL
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="btn-modal"  (click)="modal.dismiss('Cross click')">
+                            CONNECT
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- install Wallet modal -->
+          <ng-template #install let-modal>
+            <div class="detail-modal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-12">
+
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center" style="padding: 30px 20px">
+                      <img src="assets/images/info-icon.svg" height="80" style="text-align: center; display: block; margin: 20px auto">
+                      <h4 style="margin-bottom: 40px; color: #FBB03B" 
+                        class="modal-title ms-0 text-center"
+                        id="modal-basic-title"
+                      >
+                        PLEASE INSTALL OR CONNECT YOUR WALLET
+                      </h4>
+                      <div class="row col-lg-10 mx-auto">
+                        <div class="col-12">
+                          <div class="login-btn" (click)="open(wallet);modal.dismiss('Cross click')">
+                            Connect wallet
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+
+          <!-- Wallet not found modal -->
+          <ng-template #download let-modal>
+            <div class="detail-modal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-12">
+
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="text-center" style="padding: 30px 20px">
+                      <img src="assets/images/wallet-not-found.svg" height="80" style="text-align: center; display: block; margin: 20px auto">
+                      <h4 style="color: #FBB03B" 
+                        class="modal-title ms-0 mb-1 text-center"
+                        id="modal-basic-title "
+                      >
+                        WALLET NOT FOUND
+                      </h4>
+                      <p style="margin-bottom: 40px;">Please setup your wallet before continuing. </p>
+                      <div class="row col-lg-10 mx-auto">
+                        <div class="col-12">
+                          <div class="login-btn" (click)="open(wallet);modal.dismiss('Cross click')">
+                            Connect wallet
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+        <p style="margin-top: 40px">We do not own your private keys and cannot accessyour funds without your confirmation. See <a href="#">Term of Use</a></p>
+      </div>
+  </div>
+  </div>
+</section>
+
+
+

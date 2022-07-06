@@ -1,0 +1,132 @@
+.view-btn{
+    display: flex;
+}
+
+.view-btn div{
+    padding: 10px;
+    cursor :pointer;
+}
+
+
+.view-btn div{
+    padding: 10px;
+    cursor :pointer;
+}
+
+.grid-row:hover{
+    color:  #E6211A;
+}
+
+@media(max-width:  768px){
+    .view-btn{
+        display: none;
+    }
+}
+
+
+.majestic-label{
+    background: url(../../assets/images/majestic-label.svg)no-repeat;
+    color:  #300701;
+    text-align: center;
+    background-size: 100%;
+    font-size:  14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    margin-bottom: 7.5px;
+}
+
+
+.majestic-label.product-row{
+    height: 55px;
+    font-size:  18px;
+}
+
+
+.btn-price{
+    height:  55px;
+    background-size: 100% 100%;
+}
+.btn-price span{
+    color: #FCBF10;
+    font-size: 14px;
+}
+
+.result-count{
+    color:  #FCBF10;
+    font-size: 28px;
+}
+
+.result-count span{
+    color:  #fff;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+
+.product-detail-tab-title{
+    font-size: 14px;
+    color: #FDECCD;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-land-ability{
+    color:  #FBB03B;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.product-land-icon{
+    width: 50px;
+}
+
+.product-land-lv-icon{
+    display:  inline-block;
+    width: 20px;
+    margin-right: 15px;
+}
+
+.product-land-lv{
+    color:  #FBB03B;
+    font-size:14px;
+}
+
+
+.btn-search{
+    background: #330609;
+    border-radius: 5px;
+    padding: 10px 15px;
+    height: 100%;
+    color: #96342E;
+    font-size: 20px;
+}
+
+
+.search-input{
+    background: #23100E;
+    padding: 10px;
+    height:  48px;
+    border:  0;
+    color:  #FDECCD;
+}
+
+.search-input:focus {
+    color: #FDECCD;
+    background: #23100E!important;
+    border-color: transparent!important;
+    outline: 0;
+    box-shadow: 0!important;
+}
+
+
+.search-input::placeholder{
+    color:  #96342E;
+}
+
+@media(max-width:  414px){
+    .margin-auto{
+        margin:  auto;
+    }
+}

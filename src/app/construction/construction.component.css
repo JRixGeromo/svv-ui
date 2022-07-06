@@ -1,0 +1,137 @@
+h1{
+	font-weight: 700;
+}
+.home-banner{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 75vh;
+}
+
+.slider-contain {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.slider-content h4{
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 40px;
+    margin-top: -3px;
+    line-height: 1.5;
+}
+
+.slider-content h1{
+    font-weight: 700;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    color: #333;
+    font-size: 36px;
+}
+
+h4.title{
+    color: #E6211A;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    margin-top: -3px;
+    font-size: 18px;
+    text-transform: capitalize;
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: .03em;
+    text-align: center;
+}
+
+h3.title1{
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    font-size: 36px;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .02em;
+}
+
+h3.title1:after{
+    position: absolute;
+    height: 5px;
+    width: 70px;
+    background-color: #E6211A;
+    content: "";
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+}
+
+.home-content{
+    color:  #707a83;
+    margin-bottom: 40px;
+}
+
+.create-box p{
+    color: #707a83;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.create-box fa-icon{
+    color: #E6211A;
+    font-size: 54px;
+    margin-bottom: 10px;
+    margin-top:  20px;
+}
+
+.create-box h5{
+    font-weight: 600;
+}
+
+@media(max-width:  1024px){
+    .home-banner{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: 85vh;
+    }
+}
+@media(max-width:  768px){
+
+
+    .slider-content h4{
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+
+    .slider-content h1 {
+        font-size: 28px;
+        margin-top: 30px;
+    }
+
+    .slider-contain{
+        height :100%;
+        justify-content: center;
+    }
+
+    .home-banner{
+        height :100%
+    }
+
+    h3.title1{
+        font-size: 24px;
+    }
+}
+
+.slider-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:  15px 30px;
+}

@@ -1,0 +1,562 @@
+<section style="margin-top: 60px">
+  <div class="container">
+    <div class="row" *ngIf="nft">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-6 pr-0 pb-0">
+            <div class="btn-back cursor-pointer" (click)="back()"> <img src="assets/images/btn-back.svg">back</div>
+          </div>
+          <div class="col-lg-6 p-0">
+            <div class="detail-header">Savanna life details</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 detail-bg">
+        <div class="row">
+          <div class="col-lg-6 my-auto detail-sub-bg" style="background: #23100E; padding: 30px; margin-bottom: 10px;">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                 <div class="detail-img">
+                  <img
+                    src="assets/images/2910.jpg" width="100%"
+                    style="margin-bottom: 15px; object-fit: cover;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="detail-btn-price">
+                  <img src="assets/images/price-unit.svg">
+                  <div>0.09 svsa <span>(101.62 USD)</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="btn-buy cursor-pointer" (click)="open(buy)">
+                  <div class="d-block">Buy now</div>
+                </div>
+              </div>
+            </div>
+
+          <!-- Connect your Wallet modal -->
+          <ng-template #buy let-modal>
+            <div class="detail-modal">
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4
+                      class="modal-title ms-0 mb-2"
+                      id="modal-basic-title"
+                    >
+                      CHECKOUT
+                    </h4>
+                    <p style="margin-bottom: 40px">You are about to purchase a mystery box.  </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+
+                    <button
+                      type="button"
+                      class="close"
+                      aria-label="Close"
+                      (click)="modal.dismiss('Cross click')"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="row">
+                      <div class="col-sm-8 mx-auto">
+                        <div class="checkout-price">
+                          <div class="row">
+                            <div class="col-sm-9">
+                              <p>Price</p>
+                            </div>
+                            <div class="col-sm-3">
+                              <h4>0.09 <span class="price-unit">svsa</span></h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-8 mx-auto">
+                        <div class="checkout-desc">
+                          <div class="row">
+                            <div class="col-sm-9">
+                              <p>Your Balance</p>
+                            </div>
+                            <div class="col-sm-3 text-right">
+                              <h4>0.09 <span class="price-unit">svsa</span></h4>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-9">
+                              <p>Amount</p>
+                            </div>
+                            <div class="col-sm-3 text-right">
+                              <h4>0.09</h4>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-9">
+                              <p>Total Price</p>
+                            </div>
+                            <div class="col-sm-3 text-right">
+                              <h4>0.09 <span class="price-unit">svsa</span></h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center" style="padding: 30px 20px">
+                      <div class="row col-lg-10 mx-auto">
+                        <div class="col-sm-6">
+                          <div class="btn-cancel"  (click)="modal.dismiss('Cross click')">
+                            CANCEL
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="btn-modal" (click)="open(complete);modal.dismiss('Cross click')">
+                            CHECK OUT
+                          </div>
+                        </div>
+
+                        <!-- install Wallet modal -->
+                        <ng-template #complete let-modal>
+                          <div class="detail-modal">
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-sm-12">
+
+                                  <button
+                                    type="button"
+                                    class="close"
+                                    aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')"
+                                  >
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                  <div style="padding: 30px 20px">
+                                    <img src="assets/images/complete-icon.svg" height="80" style="text-align: center; display: block; margin: 20px auto">
+                                    <h4 style="margin-bottom: 20px; color: #FBB03B" 
+                                      class="modal-title ms-0 d-block text-center"
+                                      id="modal-basic-title"
+                                    >
+                                      Complete!
+                                    </h4>
+                                    <p class="text-center">The transaction is completed.<br/>
+                                    Please check your inventory. </p>
+                                    <div class="row">
+                                      <div class="col-sm-8 mx-auto">
+                                        <div class="complete-desc">
+                                          <div class="row">
+                                            <div class="col-sm-4">
+                                              <p>Date & Time</p>
+                                            </div>
+                                            <div class="col-sm-8 text-right">
+                                              <p>{{nft?.created_at | date:'d MMMM yyyy hh:mm a'}}</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row col-lg-10 mx-auto">
+                                      <div class="col-12">
+                                        <div class="login-btn" (click)="modal.dismiss('Cross click')">
+                                          Close
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          </div>
+          <div class="col-lg-6">
+           <div class="detail-sub-bg" style="background: #23100E; padding: 15px 30px;">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div style="font-size: 18px"> owner: <span class="detail-owner-text">SVV </span></div>
+                </div>
+                <div class="col-lg-6">
+                  <div style="font-size: 18px"> Sarvanna id: <span class="detail-owner-text">#2910</span></div>
+                </div>
+              </div>
+           </div>
+           <div class="detail-sub-bg" style="background: #23100E; padding: 0px 30px; margin-bottom: 10px;">
+             <div class="row">
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="majestic-label">Majestic</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-7">
+                    <p class="detail-name-text">ROAR 2910</p>
+                  </div>
+                  <div class="col-5">
+                    <p class="detail-lv text-right">Lv: <span>100</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="detail-name-text"><img src="assets/images/huntar-icon.svg" class="detail-badge-icon" />Huntar</div>
+                  </div>
+                </div>
+              </div>
+             </div>
+           </div>
+           <div class="detail-card-bg">
+             <div class="product-tabs">
+               <div class="product-tabs__list">
+                 <a
+                   href="#tab-lifeInfo"
+                   class="product-tabs__item"
+                   [ngClass]="{
+                     'product-tabs__item--active': tab === 'lifeInfo'
+                   }"
+                   (click)="$event.preventDefault(); tab = 'lifeInfo'"
+                   >Life Info</a
+                 >
+
+                 <a
+                   href="#tab-stats"
+                   class="product-tabs__item"
+                   [ngClass]="{
+                     'product-tabs__item--active': tab === 'stats'
+                   }"
+                   (click)="$event.preventDefault(); tab = 'stats'"
+                   >Stats</a
+                 >
+
+                 <a
+                   href="#tab-land"
+                   class="product-tabs__item"
+                   [ngClass]="{
+                     'product-tabs__item--active': tab === 'land'
+                   }"
+                   (click)="$event.preventDefault(); tab = 'land'"
+                   >Land</a
+                 >
+
+                 <a
+                   href="#tab-fusion"
+                   class="product-tabs__item"
+                   [ngClass]="{ 'product-tabs__item--active': tab === 'fusion' }"
+                   (click)="$event.preventDefault(); tab = 'fusion'"
+                   >Fusion  </a
+                 >
+               </div>
+               <div class="product-tabs__content">
+                 <div
+                   class="product-tabs__pane"
+                   id="tab-lifeInfo"
+                   [ngClass]="{ 'product-tabs__pane--active': tab === 'lifeInfo' }"
+                 >
+                  <div class="row">
+                    <div class="col-lg-6 col-8">
+                      <div class="detail-tab-title">Savanna Life Point : </div>
+                    </div>
+                    <div class="col-lg-6 col-4">
+                      <div class="text-right detail-tab-desc">420</div>
+                    </div>
+                   </div>
+                   <div class="row" style="margin-bottom: 15px">
+                    <div class="col-lg-6 col-8">
+                      <div class="detail-tab-title">Skill Bonus : </div>
+                    </div>
+                    <div class="col-lg-6 col-4">
+                      <div class="text-right detail-tab-desc">+6.52</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-4 col-lg-4 p-detail">
+                      <div class="detail-skill">
+                          <img src="assets/images/skill-1.svg" width="100%" >
+                          <div class="detail-skill-badge">
+                            <img src="assets/images/skill-badge-1.svg" ><span class="text-yellow">9999</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-4 col-lg-4 p-detail">
+                      <div class="detail-skill">
+                          <img src="assets/images/skill-2.svg" width="100%" >
+                          <div class="detail-skill-badge">
+                            <img src="assets/images/skill-badge-1.svg" ><span class="text-blue">9999</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-4 col-lg-4 p-detail">
+                      <div class="detail-skill">
+                          <img src="assets/images/skill-3.svg" width="100%" >
+                          <div class="detail-skill-badge">
+                            <img src="assets/images/skill-badge-1.svg" ><span class="text-green">9999</span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+
+                  <div
+                   class="product-tabs__pane"
+                   id="tab-stats"
+                   [ngClass]="{ 'product-tabs__pane--active': tab === 'stats' }"
+                 >
+                  <div class="row"  style="margin-bottom: 20px">
+                    <div class="col-lg-12">
+                      <div class="detail-tab-title">Life Energy : </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="detail-name-text text-blue f-700"><img src="assets/images/life-energy.svg" class="detail-badge-icon" />250/400</div>
+                    </div>
+                   </div>
+
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="detail-tab-title">Life Ability : </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/attack-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Attack</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/defence-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Defence</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/speed-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Speed</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/intelligence-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Intelligence</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/luck-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Luck</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/strength-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Strength</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/attack-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Attack</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/defence-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Defence</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/speed-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Speed</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/intelligence-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Intelligence</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/luck-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Luck</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                          <div class="row py-2">
+                            <div class="col-2">
+                              <img src="assets/images/strength-icon.svg" class="stats-ability-icon" />
+                            </div>
+                            <div class="col-5">
+                              <div>Strength</div>
+                            </div>
+                            <div class="col-4">
+                              <div class="stats-ability">250</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                 </div>
+
+                  <div
+                   class="product-tabs__pane"
+                   id="tab-land"
+                   [ngClass]="{ 'product-tabs__pane--active': tab === 'land' }"
+                 >
+                    <div class="row">
+                      <div class="col-lg-7 my-auto">
+                        <img src="assets/images/land.svg" width="100%" />
+                      </div>
+                      <div class="col-lg-5">
+                        <div class="row py-2">
+                          <div class="col-l2">
+                            <div class="unknown-label">Unknown</div>
+                          </div>
+                          <div class="col-5">
+                            <img src="assets/images/energy-icon.svg" class="land-lv-icon" /> hill
+                          </div>
+                          <div class="col-7 mt-auto">
+                            <div class="land-lv f-400 text-right">Lv: 1</div>
+                          </div>
+                        </div>
+                        <div class="row py-2">
+                          <div class="col-l2">
+                            <div class="detail-tab-title">Energy/Minutes : </div>
+                          </div>
+                          <div class="col-3">
+                            <img src="assets/images/energy-icon.svg" class="land-icon" />
+                          </div>
+                          <div class="col-9 mt-auto">
+                            <div class="land-ability text-right">0.4/M</div>
+                          </div>
+                        </div>
+                        <div class="row py-2">
+                          <div class="col-l2">
+                            <div class="detail-tab-title">Life Stats : </div>
+                          </div>
+                          <div class="col-3">
+                            <img src="assets/images/life-stats.svg" class="land-icon" />
+                          </div>
+                          <div class="col-9 mt-auto">
+                            <div class="land-ability text-right">Win + 1</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div
+                   class="product-tabs__pane"
+                   id="tab-fusion"
+                   [ngClass]="{ 'product-tabs__pane--active': tab === 'fusion' }"
+                 >
+                    <div class="row">
+                      <div class="col-lg-12 my-auto">
+                        <p style="color: #845636; display: flex; justify-content: center; align-items: center;">Coming Soon...
+                      </div>
+                    </div>
+                  </div>
+               </div>
+             </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
